@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class TelaPrincipal extends JFrame {
 
-    private int x = 645, y = 474;
+    private int x = 8, y = 30;
 
     public TelaPrincipal() {
         setTitle("Demonstração STATE");

@@ -2,14 +2,9 @@ package Ouvintes;
 
 import View.TelaPrincipal;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class KeyOuvinte implements KeyListener {
 
@@ -30,7 +25,7 @@ public class KeyOuvinte implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         String caminhoSprite = "";
-        if ((x >= 8 || y >= 30) && x <= 645 || y <= 474) {
+        if ((x >= 8 || y >= 30) && (x <= 645 || y <= 474)) {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
                     caminhoSprite = "img/sprites/Player/esquerda.png";
@@ -51,14 +46,6 @@ public class KeyOuvinte implements KeyListener {
             }
             tela.moveGraphics(x, y, caminhoSprite);
         }
-
-//        BufferedImage image = null;
-//        try {
-//            image = ImageIO.read(new File(caminhoSprite));
-//        } catch (IOException ex) {
-//            throw new RuntimeException(ex);
-//        }
-//        graphics.drawImage(image, x, y, 45, 81, null);
 
     }
 

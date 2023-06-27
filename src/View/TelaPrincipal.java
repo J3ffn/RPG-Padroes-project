@@ -17,6 +17,7 @@ public class TelaPrincipal extends JFrame {
         setTitle("Demonstração STATE");
         setarParametrosTela();
 //        getContentPane().setBackground(Color.BLACK);
+        this.setBackground(null);
 
     }
 

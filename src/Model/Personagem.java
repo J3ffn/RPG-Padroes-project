@@ -2,6 +2,11 @@ package src.Model;
 
 import src.States.EstadoPersonagem;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 public abstract class Personagem {
     private EstadoPersonagem estadoAtual;
     private int vida;
@@ -9,6 +14,7 @@ public abstract class Personagem {
     public int getVida() {
         return vida;
     }
+    private BufferedImage imagem;
 
     public void setVida(int vida) {
         this.vida = vida;

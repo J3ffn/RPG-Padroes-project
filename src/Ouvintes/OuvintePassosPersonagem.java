@@ -1,6 +1,7 @@
 package src.Ouvintes;
 
 import src.View.Personagem;
+import src.View.TelaPrincipal;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,18 +10,23 @@ import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import src.View.*;
-
 public class OuvintePassosPersonagem implements KeyListener {
 
-    private JFrame tela;
+    private interface KeyFunction<T> {
+        T execute();
+    }
+
+    private final JFrame tela;
     private Graphics graphics;
+
     private Personagem personagem;
+
     private int x, y;
+
     private Map<Integer, KeyFunction<String>> keys;
 
     public OuvintePassosPersonagem(Personagem personagem) {
-//        this.tela = TelaPrincipal.getJframe();
+        this.tela = TelaPrincipal.getJframe();
         graphics = tela.getGraphics();
         this.personagem = personagem;
         addKeys();
@@ -47,8 +53,7 @@ public class OuvintePassosPersonagem implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -66,8 +71,5 @@ public class OuvintePassosPersonagem implements KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
-    private interface KeyFunction<T> {
-        T execute();
-    }
 
 }

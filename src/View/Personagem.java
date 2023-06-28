@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Personagem extends Component {
 
     private String caminhoSprite;
-    private int x, y;
+    private int x = 349, y = 275;
 
     public Personagem() {
         TelaPrincipal.getJframe().getContentPane().addKeyListener(new OuvintePassosPersonagem(this));

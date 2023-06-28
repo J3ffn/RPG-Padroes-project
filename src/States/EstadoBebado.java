@@ -13,7 +13,7 @@ public class EstadoBebado extends EstadoPersonagem {
 	}
     
     @Override
-    boolean atacar(Model.Personagem inimigo) {
+    public boolean atacar(Model.Personagem inimigo) {
     	Random random = new Random();
         int numero = random.nextInt(11);
 

@@ -1,7 +1,6 @@
 package src.Model;
 
 import src.Interface.EstadoPersonagem;
-import src.States.EstadoAndando;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

@@ -1,12 +1,8 @@
 package src.View;
 
-import src.Ouvintes.KeyOuvinte;
 import src.Ouvintes.OuvintePassosPersonagem;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.event.ComponentListener;
-import java.io.File;
 
 public class TelaPrincipal {
 

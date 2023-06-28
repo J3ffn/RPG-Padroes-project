@@ -1,3 +1,5 @@
+![Descrição da imagem](img/background/Leowood.png)
+
 # Projeto de RPG utilizando o padrão de projeto State em Java
 
 Este projeto foi desenvolvido como parte de um trabalho da universidade e demonstra a implementação do padrão de projeto State em Java para a criação de um jogo de RPG simples.

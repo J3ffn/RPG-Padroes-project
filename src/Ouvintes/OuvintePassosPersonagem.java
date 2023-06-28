@@ -63,8 +63,8 @@ public class OuvintePassosPersonagem implements KeyListener {
 //        if ((x >= 8 || y >= 30) && x <= 645 || y <= 474) {
         if (keys.containsKey(keyPress)) {
             caminhoSprite = keys.get(keyPress).execute();
+            personagem.moveGraphics(x, y, caminhoSprite);
         }
-        personagem.moveGraphics(x, y, caminhoSprite);
     }
 
     @Override

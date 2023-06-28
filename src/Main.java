@@ -1,5 +1,6 @@
 import Model.Personagem;
 import States.EstadoAtacando;
+import States.EstadoBebado;
 import States.EstadoCorrendo;
 import View.TelaPrincipal;
 
@@ -21,6 +22,12 @@ public class Main {
         personagem.setEstado(new EstadoAtacando());
 
         // Teste com o estado Atacando
+        personagem.executarAcao();
+        
+        // Altera o estado para Bêbado
+        personagem.setEstado(new EstadoBebado());
+        
+        // Teste com o estado Bêbado
         personagem.executarAcao();
 
         TelaPrincipal tela = new TelaPrincipal();

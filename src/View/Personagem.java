@@ -15,11 +15,7 @@ public class Personagem extends Component {
     private int x, y;
 
     public Personagem() {
-<<<<<<< HEAD
-//        TelaPrincipal.getJframe().getContentPane().addKeyListener(new OuvintePassosPersonagem(this));
-=======
         TelaPrincipal.getJframe().getContentPane().addKeyListener(new OuvintePassosPersonagem(this));
->>>>>>> Jeff
     }
 
     public void setSprite(String path) {

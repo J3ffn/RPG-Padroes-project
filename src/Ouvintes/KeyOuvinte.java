@@ -49,7 +49,8 @@ public class KeyOuvinte implements KeyListener {
                     y -= 10;
                     break;
             }
-            tela.moveGraphics(x, y, caminhoSprite);
+            if (caminhoSprite != "")
+            	tela.moveGraphics(x, y, caminhoSprite);
         }
 
 //        BufferedImage image = null;

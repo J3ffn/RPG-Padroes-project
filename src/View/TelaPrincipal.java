@@ -3,17 +3,21 @@ package src.View;
 import src.Ouvintes.OuvintePassosPersonagem;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class TelaPrincipal {
 
-    private static final JFrame jframe = new JFrame();
+    private static JFrame jframe = null;
 
     private String caminhoSprite;
 
     public TelaPrincipal() {
+        jframe = new JFrame();
         jframe.setTitle("Demonstração STATE");
+        jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setarParametrosTela();
         adicionarBackground();
+        testMap();
     }
 
     public static JFrame getJframe() {
@@ -28,8 +32,6 @@ public class TelaPrincipal {
         jframe.setSize(698, 562);
         jframe.setResizable(false);
         jframe.setLocationRelativeTo(null);
-        jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        jframe.setVisible(true);
     }
 
     public void iniciar() {
@@ -41,6 +43,10 @@ public class TelaPrincipal {
         Personagem p = new Personagem();
         jframe.add(p);
         jframe.addKeyListener(new OuvintePassosPersonagem(p));
+    }
+
+    public void testMap() {
+        jframe.getContentPane().add(new ComponentMap());
     }
 
 }

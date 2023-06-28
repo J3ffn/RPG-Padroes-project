@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Personagem extends Component {
 
     private String caminhoSprite;
-    private int x, y;
+    private int x = 200, y = 200;
 
     public Personagem() {
         TelaPrincipal.getJframe().getContentPane().addKeyListener(new OuvintePassosPersonagem(this));
@@ -31,22 +31,16 @@ public class Personagem extends Component {
 
     @Override
     public void paint(Graphics g) {
-//        g.clearRect(x - 10, y - 10, 60, 60);
         if (caminhoSprite == null) caminhoSprite = "img/sprites/Player/frente.png";
+
         BufferedImage image = null;
         try {
             image = ImageIO.read(new File(caminhoSprite));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        super.paint(image.getGraphics());
 
-        g.drawImage(image, x, y, 15, 27, new ImageObserver() {
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-                return false;
-            }
-        });
+        g.drawImage(image, x, y, 15, 27, null);
     }
 
 }

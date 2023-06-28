@@ -1,70 +1,46 @@
 package View;
 
-import Ouvintes.KeyOuvinte;
+import Ouvintes.OuvintePassosPersonagem;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-public class TelaPrincipal extends JFrame {
+public class TelaPrincipal {
 
-    private int x = 645, y = 474;
-
-    public TelaPrincipal() {
-        setTitle("Demonstração STATE");
-        setarParametrosTela();
-//        getContentPane().setBackground(Color.BLACK);
-        this.setBackground(null);
-
-    }
-
-    private void setarParametrosTela() {
-        setSize(698, 562);
-        setResizable(false);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }
-
-    public void iniciar() {
-        setVisible(true);
-        addSprite();
-        this.addKeyListener(new KeyOuvinte(this, x, y));
-    }
-
-    public void addSprite() {
-        Graphics g = this.getGraphics();
-//        g.drawImage(createImage(100, 100), 200, 200, Color.BLUE,this);
-//        g.create(100, 100, 200, 200);
-//        g.setColor(Color.BLUE);
-
-    }
+    private static final JFrame jframe = new JFrame();
 
     private String caminhoSprite;
 
-    public void moveGraphics(int newX, int newY, String caminhoSprite) {
-        x = newX;
-        y = newY;
-        this.caminhoSprite = caminhoSprite;
-        repaint();
+    public TelaPrincipal() {
+        jframe.setTitle("Demonstração STATE");
+        setarParametrosTela();
+        adicionarBackground();
     }
 
-    @Override
-    public void paint(Graphics g){
-        g.clearRect(x - 10, y - 10, 100, 110);
-        if (caminhoSprite == null) caminhoSprite = "img/sprites/Player/frente.png";
-//        File path = new File();
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(new File(caminhoSprite));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        super.paint(image.getGraphics());
+    public static JFrame getJframe() {
+        return jframe;
+    }
 
-        g.drawImage(image, x, y, 45, 81, null);
+    private void adicionarBackground() {
+        jframe.setContentPane(new Imagem());
+    }
+
+    private void setarParametrosTela() {
+        jframe.setSize(698, 562);
+        jframe.setResizable(false);
+        jframe.setLocationRelativeTo(null);
+        jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jframe.setVisible(true);
+    }
+
+    public void iniciar() {
+        addSprite();
+        jframe.setVisible(true);
+    }
+
+    public void addSprite() {
+        Personagem p = new Personagem();
+        jframe.add(p);
+        jframe.addKeyListener(new OuvintePassosPersonagem(p));
     }
 
 }

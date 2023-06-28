@@ -2,6 +2,7 @@ import Model.Personagem;
 import View.TelaPrincipal;
 
 public class Main {
+
     public static void main(String[] args) {
         // Criação do personagem
         Personagem personagem = new Personagem() {

@@ -9,20 +9,38 @@ public abstract class EstadoPersonagem {
     private int ataque;
     private int vidaMaxima;
     
+
     public float getVelocidade() {
-		return velocidade;
-	}
+        return velocidade;
+    }
 
-	public int getDefesa() {
-		return defesa;
-	}
+    public void setVelocidade(float velocidade) {
+       this.velocidade = velocidade;
+    }
 
-	public int getAtaque() {
-		return ataque;
-	}
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+       this.ataque = ataque;
+    }
+
     public int getVidaMaxima() {
-		return vidaMaxima;
-	}
+       return vidaMaxima;
+    }
+
+    public void setVidaMaxima(int vidaMaxima) {
+        this.vidaMaxima = vidaMaxima;
+    }
 
 	boolean atacar(Personagem inimigo) {
 
@@ -32,8 +50,7 @@ public abstract class EstadoPersonagem {
     	else {
 			inimigo.perderVida(getAtaque());
 			return true;
-		}
-    	
+		}    	
     }
     
 }

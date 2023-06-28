@@ -1,21 +1,34 @@
 package Model;
 
-import Interface.EstadoPersonagem;
-import States.EstadoAndando;
+import States.EstadoBase;
+import States.EstadoPersonagem;
 
-public class Personagem {
+public abstract class Personagem {
     private EstadoPersonagem estadoAtual;
+    private int vida;
+    
+	public int getVida() {
+		return vida;
+	}
 
-    public Personagem() {
-        // Estado inicial: Andando
-        estadoAtual = new EstadoAndando();
-    }
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
 
-    public void setEstado(EstadoPersonagem estado) {
-        this.estadoAtual = estado;
-    }
+	public EstadoPersonagem getEstadoAtual() {
+		return estadoAtual;
+	}
 
+	public void setEstadoAtual(EstadoPersonagem estadoAtual) {
+		this.estadoAtual = estadoAtual;
+	}
     public void executarAcao() {
-        estadoAtual.executarAcao();
-    }
+		// TODO Auto-generated method stub
+
+	}
+    public void perderVida(int dano) {
+		// TODO Auto-generated method stub
+
+	}
+    
 }

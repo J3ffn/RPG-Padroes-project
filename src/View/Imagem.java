@@ -25,11 +25,7 @@ public class Imagem extends JPanel {
     }
 
     public Image getImage(String path) throws IOException {
-<<<<<<< HEAD
         return ImageIO.read(new File(path));
-=======
-        return  ImageIO.read(new File(path));
->>>>>>> Jeff
     }
 
     public void paintComponent(Graphics g) {

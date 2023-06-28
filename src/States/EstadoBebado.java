@@ -1,4 +1,6 @@
-package States;
+package src.States;
+
+import src.States.EstadoPersonagem;
 
 public class EstadoBebado extends EstadoPersonagem {
     private float velocidade = 0.5f;

@@ -22,13 +22,12 @@ public abstract class Personagem {
 	public void setEstadoAtual(EstadoPersonagem estadoAtual) {
 		this.estadoAtual = estadoAtual;
 	}
+
     public void executarAcao() {
 		// TODO Auto-generated method stub
-
 	}
+
     public void perderVida(int dano) {
 		// TODO Auto-generated method stub
-
-	}
-    
+	} 
 }

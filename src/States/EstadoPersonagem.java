@@ -1,6 +1,6 @@
-package src.States;
+package States;
 
-import src.Model.Personagem;
+import Model.Personagem;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -59,7 +59,7 @@ public abstract class EstadoPersonagem {
         this.vidaMaxima = vidaMaxima;
     }
 
-    boolean atacar(Personagem inimigo) {
+    boolean atacar(Model.Personagem inimigo) {
 
         int defesaInimigo = inimigo.getEstadoAtual().getDefesa();
         if (defesaInimigo >= getAtaque())

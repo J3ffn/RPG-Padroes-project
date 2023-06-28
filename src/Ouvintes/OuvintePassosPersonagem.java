@@ -1,7 +1,7 @@
-package src.Ouvintes;
+package Ouvintes;
 
-import src.View.Personagem;
-import src.View.TelaPrincipal;
+import View.Personagem;
+import View.TelaPrincipal;
 
 import javax.swing.*;
 import java.awt.*;

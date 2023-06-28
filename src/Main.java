@@ -1,6 +1,6 @@
-package src;
 
-import src.View.TelaPrincipal;
+
+import View.TelaPrincipal;
 
 public class Main {
 

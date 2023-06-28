@@ -1,7 +1,7 @@
-package src.States;
+package States;
 
 
-import src.Model.Personagem;
+import Model.Personagem;
 
 public class EstadoFuria extends EstadoPersonagem {
     public EstadoFuria() {
@@ -12,7 +12,7 @@ public class EstadoFuria extends EstadoPersonagem {
     }
 
     @Override
-    boolean atacar(Personagem inimigo) {
+    boolean atacar(Model.Personagem inimigo) {
         int defesaInimigo = inimigo.getEstadoAtual().getDefesa();
         boolean isSucesso = true;
         for (int i = 0; i <= 2; i++) {

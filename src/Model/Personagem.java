@@ -1,6 +1,6 @@
-package src.Model;
+package Model;
 
-import src.States.EstadoPersonagem;
+import States.EstadoPersonagem;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

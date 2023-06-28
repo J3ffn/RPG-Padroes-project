@@ -1,6 +1,6 @@
-package src.View;
+package View;
 
-import src.Ouvintes.OuvintePassosPersonagem;
+import Ouvintes.OuvintePassosPersonagem;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

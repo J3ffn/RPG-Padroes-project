@@ -1,23 +1,17 @@
-package Ouvintes;
+package src.Ouvintes;
 
-import View.TelaPrincipal;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class KeyOuvinte implements KeyListener {
 
-    private TelaPrincipal tela;
+    private JFrame tela;
     private Graphics graphics;
     private int x, y;
 
-    public KeyOuvinte(TelaPrincipal tela, int x, int y) {
+    public KeyOuvinte(JFrame tela, int x, int y) {
         this.tela = tela;
         graphics = tela.getGraphics();
         this.y = y;
@@ -25,7 +19,9 @@ public class KeyOuvinte implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+
+    }
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -49,19 +45,12 @@ public class KeyOuvinte implements KeyListener {
                     y -= 10;
                     break;
             }
-            tela.moveGraphics(x, y, caminhoSprite);
+//            tela.paint(x, y, caminhoSprite);
         }
-
-//        BufferedImage image = null;
-//        try {
-//            image = ImageIO.read(new File(caminhoSprite));
-//        } catch (IOException ex) {
-//            throw new RuntimeException(ex);
-//        }
-//        graphics.drawImage(image, x, y, 45, 81, null);
 
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+    }
 }

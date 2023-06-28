@@ -1,8 +1,9 @@
-package States;
+package src.States;
 
-import Interface.EstadoPersonagem;
+import src.Interface.EstadoPersonagem;
 
-public class EstadoAndando implements EstadoPersonagem {
+public class EstadoAndando implements EstadoPersonagem{
+
     @Override
     public void executarAcao() {
         System.out.println("O personagem está andando.");

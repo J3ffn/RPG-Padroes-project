@@ -1,9 +1,12 @@
-import Model.Personagem;
-import States.EstadoAtacando;
-import States.EstadoCorrendo;
-import View.TelaPrincipal;
+package src;
+
+import src.Model.Personagem;
+import src.States.EstadoAtacando;
+import src.States.EstadoCorrendo;
+import src.View.TelaPrincipal;
 
 public class Main {
+
     public static void main(String[] args) {
         // Criação do personagem
         Personagem personagem = new Personagem();

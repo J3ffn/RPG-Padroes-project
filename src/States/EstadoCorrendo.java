@@ -1,6 +1,6 @@
-package States;
+package src.States;
 
-import Interface.EstadoPersonagem;
+import src.Interface.EstadoPersonagem;
 
 public class EstadoCorrendo implements EstadoPersonagem {
 

@@ -1,13 +1,11 @@
-package States;
+package src.States;
 
-import Model.Personagem;
+public class EstadoBase extends EstadoPersonagem {
 
-public class EstadoBase extends EstadoPersonagem{
-    
     public EstadoBase() {
-    	setVelocidade(1);
-    	setDefesa(0);
-    	setAtaque(2);
-    	setVidaMaxima(10);
-	}
+        setVelocidade(1);
+        setDefesa(0);
+        setAtaque(2);
+        setVidaMaxima(10);
+    }
 }

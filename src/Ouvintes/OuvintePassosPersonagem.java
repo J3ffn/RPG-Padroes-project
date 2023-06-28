@@ -43,23 +43,32 @@ public class OuvintePassosPersonagem implements KeyListener {
         
             keys = new HashMap<>();
             keys.put(KeyEvent.VK_LEFT, () -> {
-                if (!gerenciadorCaminhos.isFora(x - 10, y)){
+                if (!gerenciadorCaminhos.isFora(x-10, y)){
                     x -= 10;
                     return "img/sprites/Player/esquerda.png";
                 }
                 return null;
             });
             keys.put(KeyEvent.VK_RIGHT, () -> {
-                x += 10;
-                return "img/sprites/Player/direita.png";
+            	if (!gerenciadorCaminhos.isFora(x+10, y)){
+	                x += 10;
+	                return "img/sprites/Player/direita.png";
+            	}
+            	return null;
             });
             keys.put(KeyEvent.VK_UP, () -> {
-                y -= 10;
-                return "img/sprites/Player/traseira.png";
+            	if (!gerenciadorCaminhos.isFora(x, y-10)){
+	                y -= 10;
+	                return "img/sprites/Player/traseira.png";
+            	}
+            	return null;
             });
             keys.put(KeyEvent.VK_DOWN, () -> {
-                y += 10;
-                return "img/sprites/Player/frente.png";
+            	if (!gerenciadorCaminhos.isFora(x, y+10)){
+	                y += 10;
+	                return "img/sprites/Player/frente.png";
+            	}
+            	return null;
             });
         
     }

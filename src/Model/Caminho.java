@@ -18,7 +18,7 @@ public class Caminho {
 
     public boolean isDentro(int x, int y){
         if (xCantoEsquerdo<x && xCantoDireito>x){
-            if(yCantoSuperior>y && yCantoInferior<y){
+            if(yCantoSuperior<y && yCantoInferior>y){
                 return true;
             }
         }

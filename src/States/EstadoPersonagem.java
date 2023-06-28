@@ -24,6 +24,22 @@ public abstract class EstadoPersonagem {
 		return vidaMaxima;
 	}
 
+	public void setVelocidade(float velocidade) {
+		this.velocidade = velocidade;
+	}
+
+	public void setDefesa(int defesa) {
+		this.defesa = defesa;
+	}
+
+	public void setAtaque(int ataque) {
+		this.ataque = ataque;
+	}
+
+	public void setVidaMaxima(int vidaMaxima) {
+		this.vidaMaxima = vidaMaxima;
+	}
+	
 	boolean atacar(Personagem inimigo) {
 
     	int defesaInimigo = inimigo.getEstadoAtual().getDefesa();

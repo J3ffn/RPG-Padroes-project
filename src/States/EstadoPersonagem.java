@@ -59,7 +59,7 @@ public abstract class EstadoPersonagem {
         this.vidaMaxima = vidaMaxima;
     }
 
-    boolean atacar(Model.Personagem inimigo) {
+    public boolean atacar(Model.Personagem inimigo) {
 
         int defesaInimigo = inimigo.getEstadoAtual().getDefesa();
         if (defesaInimigo >= getAtaque())

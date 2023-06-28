@@ -1,5 +1,11 @@
 package States;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import Model.Personagem;
 
 public abstract class EstadoPersonagem {
@@ -8,6 +14,18 @@ public abstract class EstadoPersonagem {
     private int defesa;
     private int ataque;
     private int vidaMaxima;
+    private BufferedImage sprite;
+    
+    public BufferedImage getSprite() {
+		return sprite;
+	}
+    public void setSprite(String caminho) {
+    	try {
+    	    BufferedImage imagem = ImageIO.read(new File(caminho));
+    	} catch (IOException e) {
+    	    e.printStackTrace();
+    	}
+	}
     
     public float getVelocidade() {
 		return velocidade;

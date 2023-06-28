@@ -7,7 +7,7 @@ public class GerenciadorCaminhos {
     private ArrayList<Caminho> caminhos = new ArrayList<Caminho>();
 
     private void CriarCaminhos(){
-    	Caminho caminhoCasa = new Caminho(420, 604, 320, 446);
+    	Caminho caminhoCasa = new Caminho(318, 338, 132, 226);
         caminhos.add(caminhoCasa);
         Caminho caminhoPracaPrincipal = new Caminho(270, 395, 200, 280);
         caminhos.add(caminhoPracaPrincipal);

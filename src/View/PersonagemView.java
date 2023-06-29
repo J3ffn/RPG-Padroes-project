@@ -9,12 +9,12 @@ import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
 
-public class Personagem extends Component {
+public class PersonagemView extends Component {
 
     private String caminhoSprite;
     private int x = 349, y = 275;
 
-    public Personagem() {
+    public PersonagemView() {
         TelaPrincipal.getJframe().getContentPane().addKeyListener(new OuvintePassosPersonagem(this));
     }
 

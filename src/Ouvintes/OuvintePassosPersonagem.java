@@ -1,9 +1,8 @@
 package Ouvintes;
 
-import View.Personagem;
+import View.PersonagemView;
 import View.TelaPrincipal;
 
-import Model.Caminho;
 import Model.GerenciadorCaminhos;
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ArrayList;
 
 public class OuvintePassosPersonagem implements KeyListener {
 
@@ -22,7 +20,7 @@ public class OuvintePassosPersonagem implements KeyListener {
     private final JFrame tela;
     private Graphics graphics;
 
-    private Personagem personagem;
+    private PersonagemView personagemView;
 
     private int x = 349, y = 275;
 
@@ -31,41 +29,42 @@ public class OuvintePassosPersonagem implements KeyListener {
     private GerenciadorCaminhos gerenciadorCaminhos = new GerenciadorCaminhos();
     
 
-    public OuvintePassosPersonagem(Personagem personagem) {
+    public OuvintePassosPersonagem(PersonagemView personagemView) {
         this.tela = TelaPrincipal.getJframe();
         graphics = tela.getGraphics();
-        this.personagem = personagem;
+        this.personagemView = personagemView;
         addKeys();
     }
 
     private void addKeys() {
 
-        
+            int tamanhoPasso =  2 ;
+
             keys = new HashMap<>();
             keys.put(KeyEvent.VK_LEFT, () -> {
-                if (!gerenciadorCaminhos.isFora(x-10, y)){
-                    x -= 10;
+                if (!gerenciadorCaminhos.isFora(x-tamanhoPasso, y)){
+                    x -= tamanhoPasso;
                     return "img/sprites/Player/esquerda.png";
                 }
                 return null;
             });
             keys.put(KeyEvent.VK_RIGHT, () -> {
-            	if (!gerenciadorCaminhos.isFora(x+10, y)){
-	                x += 10;
+            	if (!gerenciadorCaminhos.isFora(x+tamanhoPasso, y)){
+	                x += tamanhoPasso;
 	                return "img/sprites/Player/direita.png";
             	}
             	return null;
             });
             keys.put(KeyEvent.VK_UP, () -> {
-            	if (!gerenciadorCaminhos.isFora(x, y-10)){
-	                y -= 10;
+            	if (!gerenciadorCaminhos.isFora(x, y-tamanhoPasso)){
+	                y -= tamanhoPasso;
 	                return "img/sprites/Player/traseira.png";
             	}
             	return null;
             });
             keys.put(KeyEvent.VK_DOWN, () -> {
-            	if (!gerenciadorCaminhos.isFora(x, y+10)){
-	                y += 10;
+            	if (!gerenciadorCaminhos.isFora(x, y+tamanhoPasso)){
+	                y += tamanhoPasso;
 	                return "img/sprites/Player/frente.png";
             	}
             	return null;
@@ -84,7 +83,7 @@ public class OuvintePassosPersonagem implements KeyListener {
 //        if ((x >= 8 || y >= 30) && x <= 645 || y <= 474) {
         if (keys.containsKey(keyPress)) {
             caminhoSprite = keys.get(keyPress).execute();
-            personagem.moveGraphics(x, y, caminhoSprite);
+            personagemView.moveGraphics(x, y, caminhoSprite);
         }
         
     }

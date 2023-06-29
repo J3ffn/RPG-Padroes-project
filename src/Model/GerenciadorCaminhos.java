@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class GerenciadorCaminhos {
     
-    private ArrayList<Caminho> caminhos = new ArrayList<Caminho>();
+    private ArrayList<Elemento> caminhos = new ArrayList<Elemento>();
 
     private void CriarCaminhos(){
-    	Caminho caminhoCasa = new Caminho(318, 338, 132, 226);
+    	Elemento caminhoCasa = new Elemento(318, 338, 132, 226);
         caminhos.add(caminhoCasa);
-        Caminho caminhoPracaPrincipal = new Caminho(270, 395, 200, 280);
+        Elemento caminhoPracaPrincipal = new Elemento(270, 395, 200, 280);
         caminhos.add(caminhoPracaPrincipal);
     }
 
@@ -18,7 +18,7 @@ public class GerenciadorCaminhos {
     }
 
     public Boolean isFora(int x, int y){
-        for (Caminho caminho : caminhos) {
+        for (Elemento caminho : caminhos) {
             if (caminho.isDentro(x, y)){
                 return false;
             }

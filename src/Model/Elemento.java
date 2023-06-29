@@ -1,13 +1,13 @@
 package Model;
 
-public class Caminho {
+public class Elemento {
     private int xCantoEsquerdo;
     private int yCantoSuperior;
 
     private int xCantoDireito;
     private int yCantoInferior;
 
-    public Caminho(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior){
+    public Elemento(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior){
         this.xCantoEsquerdo = xCantoEsquerdo;
         this.xCantoDireito = xCantoDireito;
         this.yCantoSuperior = yCantoSuperior;

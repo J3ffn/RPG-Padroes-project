@@ -49,4 +49,6 @@ public abstract class Pocao extends Elemento{
     public void mudarEstado(Personagem personagem) {
         personagem.setEstadoAtual(estado);
     }
+
+    
 }

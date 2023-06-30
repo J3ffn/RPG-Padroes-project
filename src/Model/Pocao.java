@@ -1,25 +1,28 @@
 package Model;
 
 import java.awt.image.BufferedImage;
+import javax.swing.JComponent;
 import States.EstadoPersonagem;
 
-public abstract class Pocao extends Elemento{
+public class Pocao extends Elemento{
     
-    private String name;
+    private String nome;
     private String descricao;
     private BufferedImage imagem;
     private EstadoPersonagem estado;
+
+    private JComponent jComponent;
     
     public Pocao(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior) {
         super(xCantoEsquerdo, xCantoDireito, yCantoSuperior, yCantoInferior);
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getDescricao() {
@@ -46,9 +49,17 @@ public abstract class Pocao extends Elemento{
         this.estado = estado;
     }
 
+    public JComponent getJComponent() {
+        return jComponent;
+    }
+
+    public void setJComponent(JComponent jComponent) {
+        this.jComponent = jComponent;
+    }
+
     public void mudarEstado(Personagem personagem) {
         personagem.setEstadoAtual(estado);
     }
 
-    
+
 }

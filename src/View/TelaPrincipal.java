@@ -42,4 +42,5 @@ public class TelaPrincipal {
         jframe.add(p);
         jframe.addKeyListener(new OuvintePassosPersonagem(p));
     }
+    
 }

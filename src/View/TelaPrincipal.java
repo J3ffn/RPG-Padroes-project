@@ -38,7 +38,7 @@ public class TelaPrincipal {
     }
 
     public void addSprite() {
-        Personagem p = new Personagem();
+        PersonagemView p = new PersonagemView();
         jframe.add(p);
         jframe.addKeyListener(new OuvintePassosPersonagem(p));
     }

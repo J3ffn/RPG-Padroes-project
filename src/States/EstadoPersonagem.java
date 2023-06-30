@@ -1,6 +1,5 @@
 package States;
 
-import Model.Personagem;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -69,6 +68,16 @@ public abstract class EstadoPersonagem {
             return true;
         }
 
+    }
+
+    
+    public String toString() {
+        return "{" +
+            " velocidade='" + getVelocidade() + "'" +
+            ", defesa='" + getDefesa() + "'" +
+            ", ataque='" + getAtaque() + "'" +
+            ", vidaMaxima='" + getVidaMaxima() + "'" +
+            "}";
     }
 
 }

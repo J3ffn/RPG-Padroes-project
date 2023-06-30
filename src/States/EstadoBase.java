@@ -1,8 +1,4 @@
 package States;
-
-import Model.Personagem;
-import java.util.Objects;
-
 public class EstadoBase extends EstadoPersonagem{
 
     public EstadoBase() {
@@ -17,17 +13,6 @@ public class EstadoBase extends EstadoPersonagem{
         setDefesa(defesa);
         setAtaque(ataque);
         setVidaMaxima(vidaMaxima);
-    }
-
-    
-    @Override
-    public String toString() {
-        return "{" +
-            " velocidade='" + getVelocidade() + "'" +
-            ", defesa='" + getDefesa() + "'" +
-            ", ataque='" + getAtaque() + "'" +
-            ", vidaMaxima='" + getVidaMaxima() + "'" +
-            "}";
     }
     
 }

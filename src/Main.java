@@ -1,4 +1,4 @@
-import Model.Personagem;
+
 import View.TelaPrincipal;
 
 public class Main {

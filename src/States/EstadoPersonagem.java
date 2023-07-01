@@ -21,7 +21,7 @@ public abstract class EstadoPersonagem {
 
   public void setSprite(String caminho) {
     try {
-      BufferedImage imagem = ImageIO.read(new File(caminho));
+      sprite = ImageIO.read(new File(caminho));
     } catch (IOException e) {
       e.printStackTrace();
     }

@@ -38,8 +38,8 @@ public abstract class Personagem {
 
     public boolean perderVida(int dano) {
         vida -= dano;
-        if (vida <= 0) return false;
-        return true;
+        if (vida <= 0) return true;
+        return false;
     }
     public void ganharVida(int almento) {
         if (vida + almento > estadoAtual.getVidaMaxima()) vida = estadoAtual.getVidaMaxima();

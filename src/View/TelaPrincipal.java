@@ -3,7 +3,6 @@ package src.View;
 import src.Ouvintes.OuvintePassosPersonagem;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class TelaPrincipal {
 
@@ -17,7 +16,6 @@ public class TelaPrincipal {
         jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setarParametrosTela();
         adicionarBackground();
-        testMap();
     }
 
     public static JFrame getJframe() {
@@ -43,10 +41,6 @@ public class TelaPrincipal {
         Personagem p = new Personagem();
         jframe.add(p);
         jframe.addKeyListener(new OuvintePassosPersonagem(p));
-    }
-
-    public void testMap() {
-        jframe.getContentPane().add(new ComponentMap());
     }
 
 }

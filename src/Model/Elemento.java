@@ -6,6 +6,7 @@ public class Elemento {
 
     private int xCantoDireito;
     private int yCantoInferior;
+    
 
     public Elemento(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior){
         this.xCantoEsquerdo = xCantoEsquerdo;

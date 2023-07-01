@@ -1,14 +1,31 @@
 package Model;
 
+import States.EstadoBebado;
+import States.EstadoFlash;
+import States.EstadoBase;
+
 public class GerenciadorPocoes extends GerenciadorElementos {
 
   @Override
   public void CriarElementos() {
-    Pocao pocaoVida = new Pocao(153, 173, "img/pocoes/cura.png");
+    Pocao hidromel = new Pocao(153, 171, 173, 189);
+    hidromel.setNome("Hidromel");
+    hidromel.setEstado(new EstadoBebado());
+    getElementos().add(hidromel);
+
+    Pocao pocaoVelocidade = new Pocao(330, 345, 152, 167);
+    pocaoVelocidade.setNome("Poçao de velocidade");
+    pocaoVelocidade.setEstado(new EstadoFlash());
+    getElementos().add(pocaoVelocidade);
+
+    Pocao pocaoVida = new Pocao(222, 237, 370, 385);
     pocaoVida.setNome("Poçao de vida");
-    pocaoVida.setDescricao(
-        "Uma poção brilhante e revitalizante que restaura instantaneamente a vitalidade do consumidor. Seus tons dourados emanam um aroma suave de ervas curativas, promovendo uma cura rápida e eficaz. Beba desta poção para sentir a energia da vida fluir por suas veias.");
     getElementos().add(pocaoVida);
+
+    Pocao copoLeite = new Pocao(222, 237, 370, 385);
+    copoLeite.setNome("Copo de leite");
+    copoLeite.setEstado(new EstadoBase());
+    getElementos().add(copoLeite);
   }
 
 }

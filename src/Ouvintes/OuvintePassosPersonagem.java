@@ -28,43 +28,37 @@ public class OuvintePassosPersonagem implements KeyListener {
   }
 
   private void addKeys() {
-
     int tamanhoPasso = 2;
 
     keys = new HashMap<>();
     keys.put(KeyEvent.VK_LEFT, () -> {
-      if (gerenciadorCaminhos.isFora(x - tamanhoPasso, y) != null) {
+      if (!gerenciadorCaminhos.isFora(x - tamanhoPasso, y)) {
         x -= tamanhoPasso;
         return "img/sprites/Player/esquerda.png";
       }
       return null;
     });
     keys.put(KeyEvent.VK_RIGHT, () -> {
-      if (gerenciadorCaminhos.isFora(x + tamanhoPasso, y) != null) {
+      if (!gerenciadorCaminhos.isFora(x + tamanhoPasso, y)) {
         x += tamanhoPasso;
         return "img/sprites/Player/direita.png";
       }
       return null;
     });
     keys.put(KeyEvent.VK_UP, () -> {
-      if (gerenciadorCaminhos.isFora(x, y - tamanhoPasso) != null) {
+      if (!gerenciadorCaminhos.isFora(x, y - tamanhoPasso)) {
         y -= tamanhoPasso;
         return "img/sprites/Player/traseira.png";
       }
       return null;
     });
     keys.put(KeyEvent.VK_DOWN, () -> {
-      if (gerenciadorCaminhos.isFora(x, y + tamanhoPasso) != null) {
+      if (!gerenciadorCaminhos.isFora(x, y + tamanhoPasso)) {
         y += tamanhoPasso;
         return "img/sprites/Player/frente.png";
       }
       return null;
     });
-
-  }
-
-  @Override
-  public void keyTyped(KeyEvent e) {
   }
 
   @Override
@@ -77,6 +71,10 @@ public class OuvintePassosPersonagem implements KeyListener {
       personagemView.moveGraphics(x, y, caminhoSprite);
     }
 
+  }
+
+  @Override
+  public void keyTyped(KeyEvent e) {
   }
 
   @Override

@@ -60,7 +60,6 @@ public abstract class EstadoPersonagem {
   }
 
   public boolean atacar(Personagem inimigo) {
-
     int defesaInimigo = inimigo.getEstadoAtual().getDefesa();
     if (defesaInimigo >= getAtaque())
       return false;
@@ -68,7 +67,6 @@ public abstract class EstadoPersonagem {
       inimigo.perderVida(getAtaque());
       return true;
     }
-
   }
 
   public String toString() {
@@ -79,5 +77,4 @@ public abstract class EstadoPersonagem {
         ", vidaMaxima='" + getVidaMaxima() + "'" +
         "}";
   }
-
 }

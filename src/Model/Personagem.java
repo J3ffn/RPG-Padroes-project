@@ -3,6 +3,7 @@ package Model;
 import States.EstadoPersonagem;
 
 public abstract class Personagem {
+
   private EstadoPersonagem estadoAtual;
   private int vida;
 
@@ -36,14 +37,17 @@ public abstract class Personagem {
 
   }
 
-    public boolean perderVida(int dano) {
-        vida -= dano;
-        if (vida <= 0) return false;
-        return true;
-    }
-    public void ganharVida(int almento) {
-        if (vida + almento > estadoAtual.getVidaMaxima()) vida = estadoAtual.getVidaMaxima();
-        else vida += almento;
-    }
+  public boolean perderVida(int dano) {
+    vida -= dano;
+    if (vida <= 0)
+      return false;
+    return true;
+  }
 
+  public void ganharVida(int almento) {
+    if (vida + almento > estadoAtual.getVidaMaxima())
+      vida = estadoAtual.getVidaMaxima();
+    else
+      vida += almento;
+  }
 }

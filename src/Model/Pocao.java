@@ -16,10 +16,14 @@ public class Pocao extends Elemento {
   private EstadoPersonagem estado;
   private String caminho;
 
+  public Pocao(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior) {
+    super(xCantoEsquerdo, xCantoDireito, yCantoSuperior, yCantoInferior);
+  }
+
   public Pocao(int xEsquerdo, int yCima, String caminho) {
     super(xEsquerdo, yCima);
     this.caminho = caminho;
-    setBounds(xEsquerdo, yCima, 79, 88);    
+    setBounds(xEsquerdo, yCima, 79, 88);
   }
 
   public String getNome() {
@@ -68,7 +72,6 @@ public class Pocao extends Elemento {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-    
     g.drawImage(imagem, 0, 0, imagem.getWidth() - 5, imagem.getHeight() - 5, null);
   }
 

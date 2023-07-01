@@ -10,8 +10,6 @@ public class TelaPrincipal {
 
   private static JFrame jframe = null;
 
-  private String caminhoSprite;
-
   public TelaPrincipal() {
     jframe = new JFrame();
     jframe.setTitle("Demonstração STATE");

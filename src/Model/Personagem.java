@@ -2,8 +2,6 @@ package Model;
 
 import States.EstadoPersonagem;
 
-import java.awt.image.BufferedImage;
-
 public abstract class Personagem {
   private EstadoPersonagem estadoAtual;
   private int vida;
@@ -11,8 +9,6 @@ public abstract class Personagem {
   public int getVida() {
     return vida;
   }
-
-  private BufferedImage imagem;
 
   public void setVida(int vida) {
     this.vida = vida;

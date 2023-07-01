@@ -7,11 +7,8 @@ import States.EstadoPersonagem;
 public class Pocao extends Elemento{
     
     private String nome;
-    private String descricao;
     private BufferedImage imagem;
     private EstadoPersonagem estado;
-
-    private JComponent jComponent;
     
     public Pocao(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior) {
         super(xCantoEsquerdo, xCantoDireito, yCantoSuperior, yCantoInferior);
@@ -23,14 +20,6 @@ public class Pocao extends Elemento{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public BufferedImage getImagem() {
@@ -49,15 +38,10 @@ public class Pocao extends Elemento{
         this.estado = estado;
     }
 
-    public JComponent getJComponent() {
-        return jComponent;
-    }
-
-    public void setJComponent(JComponent jComponent) {
-        this.jComponent = jComponent;
-    }
-
     public void mudarEstado(Personagem personagem) {
+        if (estado == null){
+            personagem.ganharVida(10);
+        }
         personagem.setEstadoAtual(estado);
     }
 

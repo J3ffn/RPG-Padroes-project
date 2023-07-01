@@ -2,8 +2,8 @@ package States;
 
 public class EstadoFlash extends EstadoPersonagem{
 
-    public EstadoFlash(int valorComida){
-        aumentarVelocidade(valorComida);
+    public EstadoFlash(){
+        aumentarVelocidade(4);
         aumentarDefesa();
     }
 

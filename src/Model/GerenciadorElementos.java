@@ -2,23 +2,25 @@ package Model;
 
 import java.util.ArrayList;
 
-public abstract class GerenciadorElementos{
+public abstract class GerenciadorElementos {
+
     
-    private ArrayList<Elemento> elementos = new ArrayList<Elemento>();
+  private ArrayList<Elemento> elementos = new ArrayList<Elemento>();
 
-    public ArrayList<Elemento> getElementos() {
-        return elementos;
-    }
+  public GerenciadorElementos(){
+  CriarElementos();
+  }
 
-    public abstract void CriarElementos();
+  public ArrayList<Elemento> getElementos() {
+      return elementos;
+  }
 
-    public GerenciadorElementos(){
-        CriarElementos();
-    }
+  public abstract void CriarElementos();
 
-    public Elemento isFora(int x, int y){
-        for (Elemento elemento : elementos) if (elemento.isDentro(x, y)) return elemento;
-        
-        return null;
+  public Elemento isFora(int x, int y){
+      for (Elemento elemento : elementos) if (elemento.isDentro(x, y)) return elemento;
+      
+      return null;
+
     }
 }

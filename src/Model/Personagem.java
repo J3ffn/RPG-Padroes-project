@@ -33,9 +33,8 @@ public abstract class Personagem {
         }
     }
 
-    public void executarAcao() {
-        // TODO Auto-generated method stub
-
+    public boolean atacar(Personagem inimigo){
+        return estadoAtual.atacar(inimigo); 
     }
 
     public boolean isVivo() {
@@ -46,5 +45,4 @@ public abstract class Personagem {
     public void perderVida(int dano) {
         vida -= dano;
     }
-
 }

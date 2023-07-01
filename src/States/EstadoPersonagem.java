@@ -1,5 +1,6 @@
 package src.States;
 
+
 import src.Model.Personagem;
 
 import javax.imageio.ImageIO;
@@ -59,7 +60,7 @@ public abstract class EstadoPersonagem {
         this.vidaMaxima = vidaMaxima;
     }
 
-    boolean atacar(Personagem inimigo) {
+    public boolean atacar(Personagem inimigo) {
 
         int defesaInimigo = inimigo.getEstadoAtual().getDefesa();
         if (defesaInimigo >= getAtaque())
@@ -69,6 +70,16 @@ public abstract class EstadoPersonagem {
             return true;
         }
 
+    }
+
+    
+    public String toString() {
+        return "{" +
+            " velocidade='" + getVelocidade() + "'" +
+            ", defesa='" + getDefesa() + "'" +
+            ", ataque='" + getAtaque() + "'" +
+            ", vidaMaxima='" + getVidaMaxima() + "'" +
+            "}";
     }
 
 }

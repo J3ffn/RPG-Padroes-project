@@ -1,21 +1,22 @@
 package src.View;
 
-import src.Ouvintes.OuvintePassosPersonagem;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
 
-public class Personagem extends Component {
+import src.Ouvintes.OuvintePassosPersonagem;
+import src.View.*;
+
+public class PersonagemView extends Component {
 
     private String caminhoSprite;
-    private int x = 200, y = 200;
+    private int x = 349, y = 275;
 
-    public Personagem() {
-        TelaPrincipal.getJframe().getContentPane().addKeyListener(new OuvintePassosPersonagem(this));
+    public PersonagemView() {
+        View.TelaPrincipal.getJframe().getContentPane().addKeyListener(new OuvintePassosPersonagem(this));
     }
 
     public void setSprite(String path) {

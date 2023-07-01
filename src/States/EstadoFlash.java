@@ -1,21 +1,26 @@
 package States;
 
+public class EstadoFlash extends EstadoPersonagem{
 
-import Model.Personagem;
-
-public class EstadoFuria extends EstadoPersonagem {
-    public EstadoFuria() {
-        setVelocidade(1.3f);
-        setDefesa(0);
-        setAtaque(5);
-        setVidaMaxima(5);
+    public EstadoFlash(int valorComida){
+        aumentarVelocidade(valorComida);
+        aumentarDefesa();
     }
-    
-    @Override
+
+    public void aumentarDefesa(){
+        int novaDefesa = (int) (getDefesa() * (getVelocidade() / 3));
+        setDefesa(novaDefesa);
+    }
+
+    public void aumentarVelocidade(int valor){
+        float novaVelocidade = getVelocidade()* valor;
+        setVelocidade(novaVelocidade);
+    }
+
     public boolean atacar(Model.Personagem inimigo) {
         int defesaInimigo = inimigo.getEstadoAtual().getDefesa();
         boolean isSucesso = true;
-        for (int i = 0; i <= 2; i++) {
+        for (int i = 0; i < getVelocidade(); i++) {
             if (defesaInimigo >= getAtaque()) {
                 isSucesso = false;
                 break;

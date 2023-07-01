@@ -1,4 +1,6 @@
-package src.States;
+package States;
+
+import src.States.EstadoPersonagem;
 
 public class EstadoBase extends EstadoPersonagem {
 
@@ -8,4 +10,12 @@ public class EstadoBase extends EstadoPersonagem {
         setAtaque(2);
         setVidaMaxima(10);
     }
+
+    public EstadoBase(float velocidade, int defesa, int ataque, int vidaMaxima) {
+        setVelocidade(velocidade);
+        setDefesa(defesa);
+        setAtaque(ataque);
+        setVidaMaxima(vidaMaxima);
+    }
+    
 }

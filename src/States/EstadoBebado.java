@@ -1,10 +1,37 @@
-package src.States;
+package States;
 
-import src.States.EstadoPersonagem;
+import java.util.Random;
+
+import States.EstadoPersonagem;
 
 public class EstadoBebado extends EstadoPersonagem {
-    private float velocidade = 0.5f;
-    private int defesa = 0;
-    private int ataque = 2;
-    private int vidaMaxima = 10;
+	public EstadoBebado() {
+		setVelocidade(0.5f);
+		setDefesa(10);
+		setAtaque(2);
+		setVidaMaxima(20);
+	}
+
+	@Override
+	public
+	boolean atacar(Model.Personagem inimigo) {
+		Random random = new Random();
+		int numero = random.nextInt(11);
+
+		return (numero % 2 != 0) ? super.atacar(inimigo) : false;
+		/*
+		 * if (numero % 2 != 0) {
+		 * 
+			 * int defesaInimigo = inimigo.getEstadoAtual().getDefesa();
+			 * if (defesaInimigo >= getAtaque()){ 
+			 * 	return false; 
+			 * } else { 
+			 * 	inimigo.perderVida(getAtaque());
+			 * 	return true; 
+			 * }
+		 * } 
+		 * return false;
+		 */
+
+	}
 }

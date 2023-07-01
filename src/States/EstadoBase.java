@@ -1,10 +1,19 @@
 package States;
 
-import Model.Personagem;
+public class EstadoBase extends EstadoPersonagem {
 
-public class EstadoBase extends EstadoPersonagem{
-	private float velocidade = 1;
-    private int defesa = 0;
-    private int ataque = 2;
-    private int vidaMaxima = 10;
+  public EstadoBase() {
+    setVelocidade(1);
+    setDefesa(0);
+    setAtaque(2);
+    setVidaMaxima(10);
+  }
+
+  public EstadoBase(float velocidade, int defesa, int ataque, int vidaMaxima) {
+    setVelocidade(velocidade);
+    setDefesa(defesa);
+    setAtaque(ataque);
+    setVidaMaxima(vidaMaxima);
+  }
+
 }

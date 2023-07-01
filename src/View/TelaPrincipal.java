@@ -1,70 +1,56 @@
 package View;
 
-import Ouvintes.KeyOuvinte;
+import Ouvintes.OuvintePassosPersonagem;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-public class TelaPrincipal extends JFrame {
+import Model.Pocao;
 
-    private int x = 645, y = 474;
+public class TelaPrincipal {
 
-    public TelaPrincipal() {
-        setTitle("Demonstração STATE");
-        setarParametrosTela();
-//        getContentPane().setBackground(Color.BLACK);
-        this.setBackground(null);
+  private static JFrame jframe = null;
 
-    }
+  public TelaPrincipal() {
+    jframe = new JFrame();
+    jframe.setTitle("Demonstração STATE");
+    jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    setarParametrosTela();
+    adicionarBackground();
+    adicionarPocoes();
+    addSprite();
+  }
 
-    private void setarParametrosTela() {
-        setSize(698, 562);
-        setResizable(false);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }
+  public static JFrame getJframe() {
+    return jframe;
+  }
 
-    public void iniciar() {
-        setVisible(true);
-        addSprite();
-        this.addKeyListener(new KeyOuvinte(this, x, y));
-    }
+  private void adicionarBackground() {
+    jframe.setContentPane(new Imagem());
+  }
 
-    public void addSprite() {
-        Graphics g = this.getGraphics();
-//        g.drawImage(createImage(100, 100), 200, 200, Color.BLUE,this);
-//        g.create(100, 100, 200, 200);
-//        g.setColor(Color.BLUE);
+  private void setarParametrosTela() {
+    jframe.setSize(698, 562);
+    jframe.setResizable(false);
+    jframe.setLocationRelativeTo(null);
+  }
 
-    }
+  public void iniciar() {
+    jframe.setVisible(true);
+  }
 
-    private String caminhoSprite;
+  public void addSprite() {
+    PersonagemView p = new PersonagemView();
+    jframe.add(p);
+    jframe.addKeyListener(new OuvintePassosPersonagem(p));
+  }
 
-    public void moveGraphics(int newX, int newY, String caminhoSprite) {
-        x = newX;
-        y = newY;
-        this.caminhoSprite = caminhoSprite;
-        repaint();
-    }
-
-    @Override
-    public void paint(Graphics g){
-        g.clearRect(x - 10, y - 10, 100, 110);
-        if (caminhoSprite == null) caminhoSprite = "img/sprites/Player/frente.png";
-//        File path = new File();
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(new File(caminhoSprite));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        super.paint(image.getGraphics());
-
-        g.drawImage(image, x, y, 45, 81, null);
-    }
-
+  public void adicionarPocoes() {
+    Pocao pocaoHidromel = new Pocao(152, 173, "img/pocoes/hidromel.png");
+    Pocao pocaoCura = new Pocao(216, 370, "img/pocoes/cura.png");
+    Pocao pocaoVelocidade = new Pocao(323, 152, "img/pocoes/velocidade.png");
+    // Pocao pocao = new Pocao(153, 173, "img/pocoes/furia.png");
+    jframe.add(pocaoHidromel);
+    jframe.add(pocaoCura);
+    jframe.add(pocaoVelocidade);
+  }
 }

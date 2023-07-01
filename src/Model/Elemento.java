@@ -1,28 +1,65 @@
-package src.Model;
+package Model;
 
-public class Elemento {
-    private int xCantoEsquerdo;
-    private int yCantoSuperior;
+import java.awt.Component;
 
-    private int xCantoDireito;
-    private int yCantoInferior;
-    
+public class Elemento extends Component {
+  private int xCantoEsquerdo;
+  private int yCantoSuperior;
 
-    public Elemento(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior){
-        this.xCantoEsquerdo = xCantoEsquerdo;
-        this.xCantoDireito = xCantoDireito;
-        this.yCantoSuperior = yCantoSuperior;
-        this.yCantoInferior = yCantoInferior;
+  private int xCantoDireito;
+  private int yCantoInferior;
+
+  public Elemento(int xEsquerdo, int yCima) {
+    xCantoEsquerdo = xEsquerdo;
+    yCantoSuperior = yCima;
+  }
+
+  public Elemento(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior) {
+    this.xCantoEsquerdo = xCantoEsquerdo;
+    this.xCantoDireito = xCantoDireito;
+    this.yCantoSuperior = yCantoSuperior;
+    this.yCantoInferior = yCantoInferior;
+  }
+
+  public boolean isDentro(int x, int y) {
+    if (xCantoEsquerdo < x && xCantoDireito > x) {
+      if (yCantoSuperior < y && yCantoInferior > y) {
+        return true;
+      }
     }
+    return false;
+  }
 
-    
+  public int getxCantoEsquerdo() {
+    return xCantoEsquerdo;
+  }
 
-    public boolean isDentro(int x, int y){
-        if (xCantoEsquerdo<x && xCantoDireito>x){
-            if(yCantoSuperior<y && yCantoInferior>y){
-                return true;
-            }
-        }
-        return false;
-    }
+  public void setxCantoEsquerdo(int xCantoEsquerdo) {
+    this.xCantoEsquerdo = xCantoEsquerdo;
+  }
+
+  public int getyCantoSuperior() {
+    return yCantoSuperior;
+  }
+
+  public void setyCantoSuperior(int yCantoSuperior) {
+    this.yCantoSuperior = yCantoSuperior;
+  }
+
+  public int getxCantoDireito() {
+    return xCantoDireito;
+  }
+
+  public void setxCantoDireito(int xCantoDireito) {
+    this.xCantoDireito = xCantoDireito;
+  }
+
+  public int getyCantoInferior() {
+    return yCantoInferior;
+  }
+
+  public void setyCantoInferior(int yCantoInferior) {
+    this.yCantoInferior = yCantoInferior;
+  }
+
 }

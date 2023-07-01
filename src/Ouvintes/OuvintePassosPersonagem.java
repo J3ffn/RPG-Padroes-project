@@ -1,7 +1,6 @@
 package Ouvintes;
 
 import Model.GerenciadorCaminhos;
-import View.OuvintePocoes;
 import View.PersonagemView;
 
 import java.awt.event.KeyEvent;
@@ -23,13 +22,13 @@ public class OuvintePassosPersonagem implements KeyListener {
 
   private GerenciadorCaminhos gerenciadorCaminhos;
 
-  private OuvintePocoes ouvintePocoes;
+  // private OuvintePocoes ouvintePocoes;
 
   public OuvintePassosPersonagem(PersonagemView personagemView) {
     this.personagemView = personagemView;
     gerenciadorCaminhos = new GerenciadorCaminhos();
     keys = new HashMap<>();
-    this.ouvintePocoes = new OuvintePocoes();
+    // this.ouvintePocoes = new OuvintePocoes();
     addKeys();
   }
 

@@ -1,49 +1,78 @@
 package Model;
 
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import javax.swing.JComponent;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import States.EstadoPersonagem;
 
-public class Pocao extends Elemento{
-    
-    private String nome;
-    private BufferedImage imagem;
-    private EstadoPersonagem estado;
-    
-    public Pocao(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior) {
-        super(xCantoEsquerdo, xCantoDireito, yCantoSuperior, yCantoInferior);
-    }
+public class Pocao extends Elemento {
 
-    public String getNome() {
-        return nome;
-    }
+  private String nome;
+  private String descricao;
+  private BufferedImage imagem;
+  private EstadoPersonagem estado;
+  private String caminho;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+  public Pocao(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior) {
+    super(xCantoEsquerdo, xCantoDireito, yCantoSuperior, yCantoInferior);
+  }
 
-    public BufferedImage getImagem() {
-        return imagem;
-    }
+  public Pocao(int xEsquerdo, int yCima, String caminho) {
+    super(xEsquerdo, yCima);
+    this.caminho = caminho;
+    setBounds(xEsquerdo, yCima, 79, 88);
+  }
 
-    public void setImagem(BufferedImage imagem) {
-        this.imagem = imagem;
-    }
+  public String getNome() {
+    return nome;
+  }
 
-    public EstadoPersonagem getEstado() {
-        return estado;
-    }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-    public void setEstado(EstadoPersonagem estado) {
-        this.estado = estado;
-    }
+  public String getDescricao() {
+    return descricao;
+  }
 
-    public void mudarEstado(Personagem personagem) {
-        if (estado == null){
-            personagem.ganharVida(10);
-        }
-        personagem.setEstadoAtual(estado);
-    }
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
 
+  public BufferedImage getImagem() {
+    return imagem;
+  }
+
+  public void setImagem(BufferedImage imagem) {
+    this.imagem = imagem;
+  }
+
+  public EstadoPersonagem getEstado() {
+    return estado;
+  }
+
+  public void setEstado(EstadoPersonagem estado) {
+    this.estado = estado;
+  }
+
+  public void mudarEstado(Personagem personagem) {
+    personagem.setEstadoAtual(estado);
+  }
+
+  @Override
+  public void paint(Graphics g) {
+    super.paint(g);
+
+    BufferedImage imagem = null;
+    try {
+      imagem = ImageIO.read(new File(caminho));
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+    g.drawImage(imagem, 0, 0, imagem.getWidth() - 5, imagem.getHeight() - 5, null);
+  }
 
 }

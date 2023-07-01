@@ -11,7 +11,7 @@ public class GerenciadorCaminhos extends GerenciadorElementos {
 
     getElementos().add(new Elemento(150, 284, 245, 255));
 
-    getElementos().add(new Elemento(385, 479, 240, 260));
+    getElementos().add(new Elemento(385, 515, 240, 260));
 
     getElementos().add(new Elemento(336, 353, 280, 390));
 

@@ -5,6 +5,7 @@ import Ouvintes.OuvintePassosPersonagem;
 import javax.swing.*;
 
 import Model.Pocao;
+import Model.Zombie;
 
 public class TelaPrincipal {
 
@@ -17,6 +18,7 @@ public class TelaPrincipal {
     setarParametrosTela();
     adicionarBackground();
     adicionarPocoes();
+    adicionarInimigos();
     addSprite();
   }
 
@@ -52,5 +54,22 @@ public class TelaPrincipal {
     jframe.add(pocaoHidromel);
     jframe.add(pocaoCura);
     jframe.add(pocaoVelocidade);
+  }
+  public void adicionarInimigos() {
+	 String lado = "img/sprites/Zombie/Idle_Zombie_lado_esquerdo.png";
+	 jframe.add(new ZombieView(lado, 510, 255));
+	 
+	 lado = "img/sprites/Zombie/Idle_Zombie_lado_direito.png";
+	 jframe.add(new ZombieView(lado, 510, 146));
+	 jframe.add(new ZombieView(lado, 520, 370));
+	 
+	 lado = "img/sprites/Zombie/Idle_Zombie_tipo_2.png";
+	 jframe.add(new ZombieView(lado,490, 370));
+	 jframe.add(new ZombieView(lado,470, 366));
+	 jframe.add(new ZombieView(lado,560, 153));
+	 jframe.add(new ZombieView(lado, 560, 210));
+	 
+	 jframe.add(new ZombieView(560, 310));
+	 jframe.add(new ZombieView(450, 180));
   }
 }

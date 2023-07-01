@@ -1,12 +1,8 @@
 package Ouvintes;
 
-import View.TelaPrincipal;
-
 import Model.GerenciadorCaminhos;
 import View.PersonagemView;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
@@ -18,10 +14,6 @@ public class OuvintePassosPersonagem implements KeyListener {
     T execute();
   }
 
-  private final JFrame tela;
-
-  private Graphics graphics;
-
   private PersonagemView personagemView;
 
   private int x = 349, y = 275;
@@ -31,8 +23,6 @@ public class OuvintePassosPersonagem implements KeyListener {
   private GerenciadorCaminhos gerenciadorCaminhos = new GerenciadorCaminhos();
 
   public OuvintePassosPersonagem(PersonagemView personagemView) {
-    this.tela = TelaPrincipal.getJframe();
-    graphics = tela.getGraphics();
     this.personagemView = personagemView;
     addKeys();
   }

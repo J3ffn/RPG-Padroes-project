@@ -4,7 +4,7 @@ import Ouvintes.OuvintePassosPersonagem;
 
 import javax.swing.*;
 
-import Model.Pocao;
+import Model.GerenciadorPocoes;
 
 public class TelaPrincipal {
 
@@ -45,12 +45,14 @@ public class TelaPrincipal {
   }
 
   public void adicionarPocoes() {
-    Pocao pocaoHidromel = new Pocao(152, 173, "img/pocoes/hidromel.png");
-    Pocao pocaoCura = new Pocao(216, 370, "img/pocoes/cura.png");
-    Pocao pocaoVelocidade = new Pocao(323, 152, "img/pocoes/velocidade.png");
-    // Pocao pocao = new Pocao(153, 173, "img/pocoes/furia.png");
-    jframe.add(pocaoHidromel);
-    jframe.add(pocaoCura);
-    jframe.add(pocaoVelocidade);
+    GerenciadorPocoes gerenciadorPocoes = new GerenciadorPocoes();
+    gerenciadorPocoes.getElementos().forEach(pocao -> jframe.add(pocao));
+    // Pocao pocaoHidromel = new Pocao(152, 173, "img/pocoes/hidromel.png");
+    // Pocao pocaoCura = new Pocao(216, 370, "img/pocoes/cura.png");
+    // Pocao pocaoVelocidade = new Pocao(323, 152, "img/pocoes/velocidade.png");
+    // // Pocao pocao = new Pocao(153, 173, "img/pocoes/furia.png");
+    // jframe.add(pocaoHidromel);
+    // jframe.add(pocaoCura);
+    // jframe.add(pocaoVelocidade);
   }
 }

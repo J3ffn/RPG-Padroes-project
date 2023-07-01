@@ -4,6 +4,11 @@ import Model.Personagem;
 
 public class EstadoFlash extends EstadoPersonagem {
 
+  public EstadoFlash() {
+    aumentarVelocidade(4);
+    aumentarDefesa();
+  }
+
   public EstadoFlash(int valorComida) {
     aumentarVelocidade(valorComida);
     aumentarDefesa();

@@ -1,6 +1,7 @@
 package Ouvintes;
 
 import Model.GerenciadorCaminhos;
+import View.OuvintePocoes;
 import View.PersonagemView;
 
 import java.awt.event.KeyEvent;
@@ -20,10 +21,15 @@ public class OuvintePassosPersonagem implements KeyListener {
 
   private Map<Integer, KeyFunction<String>> keys;
 
-  private GerenciadorCaminhos gerenciadorCaminhos = new GerenciadorCaminhos();
+  private GerenciadorCaminhos gerenciadorCaminhos;
+
+  private OuvintePocoes ouvintePocoes;
 
   public OuvintePassosPersonagem(PersonagemView personagemView) {
     this.personagemView = personagemView;
+    gerenciadorCaminhos = new GerenciadorCaminhos();
+    keys = new HashMap<>();
+    this.ouvintePocoes = new OuvintePocoes();
     addKeys();
   }
 
@@ -31,7 +37,6 @@ public class OuvintePassosPersonagem implements KeyListener {
 
     int tamanhoPasso = 2;
 
-    keys = new HashMap<>();
     keys.put(KeyEvent.VK_LEFT, () -> {
       if (!gerenciadorCaminhos.isFora(x - tamanhoPasso, y)) {
         x -= tamanhoPasso;
@@ -72,11 +77,15 @@ public class OuvintePassosPersonagem implements KeyListener {
     Integer keyPress = e.getKeyCode();
     String caminhoSprite = "";
 
+    // if (ouvintePocoes.emCima(x, y)) {
+    // ouvintePocoes.componentHidden(e);
+    // System.out.println("Passou em cima");
+    // }
+
     if (keys.containsKey(keyPress)) {
       caminhoSprite = keys.get(keyPress).execute();
       personagemView.moveGraphics(x, y, caminhoSprite);
     }
-
   }
 
   @Override

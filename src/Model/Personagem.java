@@ -1,14 +1,24 @@
 package Model;
 
+import States.EstadoBase;
 import States.EstadoPersonagem;
 
-public abstract class Personagem {
+public class Personagem {
 
   private EstadoPersonagem estadoAtual;
   private int vida;
+  private static Personagem personagem;
 
   public int getVida() {
     return vida;
+  }
+
+  public synchronized static Personagem getPersonagem() {
+    if (personagem == null)
+      personagem = new Personagem();
+    if (personagem.getEstadoAtual() == null)
+      personagem.setEstadoAtual(new EstadoBase());
+    return personagem;
   }
 
   public void setVida(int vida) {
@@ -39,9 +49,7 @@ public abstract class Personagem {
 
   public boolean perderVida(int dano) {
     vida -= dano;
-    if (vida <= 0)
-      return false;
-    return true;
+    return vida <= 0;
   }
 
   public void ganharVida(int almento) {
@@ -50,4 +58,5 @@ public abstract class Personagem {
     else
       vida += almento;
   }
+
 }

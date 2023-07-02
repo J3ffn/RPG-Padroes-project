@@ -8,7 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import States.EstadoPersonagem;
 
-public class Pocao extends Elemento {
+public abstract class Pocao extends Elemento {
 
   private String nome;
   private String descricao;
@@ -24,6 +24,12 @@ public class Pocao extends Elemento {
     super(xEsquerdo, yCima);
     this.caminho = caminho;
     setBounds(xEsquerdo, yCima, 79, 88);
+
+    try {
+      setImagem(ImageIO.read(new File(caminho)));
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   public String getNome() {
@@ -58,9 +64,7 @@ public class Pocao extends Elemento {
     this.estado = estado;
   }
 
-  public void mudarEstado(Personagem personagem) {
-    personagem.setEstadoAtual(estado);
-  }
+  public abstract void aplicarEfeitos(Personagem personagem);
 
   @Override
   public void paint(Graphics g) {
@@ -72,6 +76,7 @@ public class Pocao extends Elemento {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+
     g.drawImage(imagem, 0, 0, imagem.getWidth() - 5, imagem.getHeight() - 5, null);
   }
 

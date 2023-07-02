@@ -6,6 +6,7 @@ public class Main {
 
     TelaPrincipal tela = new TelaPrincipal();
     tela.iniciar();
+    
   }
 
 }

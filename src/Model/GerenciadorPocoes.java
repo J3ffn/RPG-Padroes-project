@@ -1,31 +1,39 @@
 package Model;
 
+import States.EstadoBase;
 import States.EstadoBebado;
 import States.EstadoFlash;
-import States.EstadoBase;
 
 public class GerenciadorPocoes extends GerenciadorElementos {
 
   @Override
   public void CriarElementos() {
-    Pocao hidromel = new Pocao(153, 171, 173, 189);
+    Pocao hidromel = new PocaoHidromel(152, 173, "img/pocoes/hidromel.png");
     hidromel.setNome("Hidromel");
+    hidromel.setName("Poção de Hidromel");
     hidromel.setEstado(new EstadoBebado());
-    getElementos().add(hidromel);
+    elementos.add(hidromel);
 
-    Pocao pocaoVelocidade = new Pocao(330, 345, 152, 167);
+    Pocao pocaoVelocidade = new PocaoVelocidade(323, 152, "img/pocoes/velocidade.png");
     pocaoVelocidade.setNome("Poçao de velocidade");
+    pocaoVelocidade.setName("Poção de Velocidade");
     pocaoVelocidade.setEstado(new EstadoFlash());
-    getElementos().add(pocaoVelocidade);
+    elementos.add(pocaoVelocidade);
 
-    Pocao pocaoVida = new Pocao(222, 237, 370, 385);
+    Pocao pocaoVida = new PocaoVida(216, 370, "img/pocoes/cura.png");
     pocaoVida.setNome("Poçao de vida");
-    getElementos().add(pocaoVida);
+    pocaoVida.setName("Poção de Vida");
+    elementos.add(pocaoVida);
 
-    Pocao copoLeite = new Pocao(222, 237, 370, 385);
+    Pocao copoLeite = new PocaoLeite(300, 213, "img/pocoes/leite.png");
     copoLeite.setNome("Copo de leite");
+    copoLeite.setName("Poção de Leite");
     copoLeite.setEstado(new EstadoBase());
-    getElementos().add(copoLeite);
+    elementos.add(copoLeite);
+  }
+
+  public void aplicarEfeitos(Pocao pocao) {
+
   }
 
 }

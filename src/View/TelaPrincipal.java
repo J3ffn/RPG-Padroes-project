@@ -1,23 +1,22 @@
 package View;
 
-import Ouvintes.OuvintePassosPersonagem;
-
 import javax.swing.*;
 
-import Model.Pocao;
+import Model.GerenciadorPocoes;
 import Model.Zombie;
 
 public class TelaPrincipal {
 
   private static JFrame jframe = null;
+  private JLayeredPane layeredPane;
 
   public TelaPrincipal() {
     jframe = new JFrame();
+    layeredPane = new JLayeredPane();
     jframe.setTitle("Demonstração STATE");
     jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     setarParametrosTela();
     adicionarBackground();
-    adicionarPocoes();
     adicionarInimigos();
     addSprite();
   }
@@ -42,19 +41,22 @@ public class TelaPrincipal {
 
   public void addSprite() {
     PersonagemView p = new PersonagemView();
-    jframe.add(p);
-    jframe.addKeyListener(new OuvintePassosPersonagem(p));
+    layeredPane.add(p, JLayeredPane.PALETTE_LAYER);
+    addPocoes(p);
+
+    layeredPane.setFocusable(true);
+    jframe.add(layeredPane);
   }
 
-  public void adicionarPocoes() {
-    Pocao pocaoHidromel = new Pocao(152, 173, "img/pocoes/hidromel.png");
-    Pocao pocaoCura = new Pocao(216, 370, "img/pocoes/cura.png");
-    Pocao pocaoVelocidade = new Pocao(323, 152, "img/pocoes/velocidade.png");
-    // Pocao pocao = new Pocao(153, 173, "img/pocoes/furia.png");
-    jframe.add(pocaoHidromel);
-    jframe.add(pocaoCura);
-    jframe.add(pocaoVelocidade);
+  public void addPocoes(PersonagemView p) {
+    GerenciadorPocoes gerenciadorPocoes = new GerenciadorPocoes();
+    gerenciadorPocoes.getElementos().forEach(pocao -> {
+      System.out.println(pocao.getX());
+      layeredPane.add(pocao, JLayeredPane.DEFAULT_LAYER);
+    });
+    layeredPane.addKeyListener(new GerenciadorTeclado(p, gerenciadorPocoes));
   }
+  
   public void adicionarInimigos() {
 	 String lado = "img/sprites/Zombie/Idle_Zombie_lado_esquerdo.png";
 	 jframe.add(new ZombieView(new Zombie(), lado, 510, 255));

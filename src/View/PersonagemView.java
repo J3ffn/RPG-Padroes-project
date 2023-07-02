@@ -11,6 +11,10 @@ public class PersonagemView extends Component {
   private String caminhoSprite;
   private int x = 349, y = 275;
 
+  public PersonagemView() {
+    setBounds(0, 0, 698, 562);
+  }
+
   public void setSprite(String path) {
     caminhoSprite = path;
   }
@@ -37,4 +41,11 @@ public class PersonagemView extends Component {
     g.drawImage(image, x, y, 15, 27, null);
   }
 
+  public int getSpriteX() {
+    return x;
+  }
+
+  public int getSpriteY() {
+    return y;
+  }
 }

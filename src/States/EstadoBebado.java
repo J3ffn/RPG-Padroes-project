@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class EstadoBebado extends EstadoPersonagem {
   public EstadoBebado() {
-    setVelocidade(0.5f);
+    setVelocidade(1);
     setDefesa(10);
     setAtaque(2);
     setVidaMaxima(20);

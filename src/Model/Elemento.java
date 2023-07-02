@@ -12,6 +12,7 @@ public class Elemento extends Component {
   public Elemento(int xEsquerdo, int yCima) {
     xCantoEsquerdo = xEsquerdo;
     yCantoSuperior = yCima;
+    setArea();
   }
 
   public Elemento(int xCantoEsquerdo, int xCantoDireito, int yCantoSuperior, int yCantoInferior) {
@@ -60,6 +61,11 @@ public class Elemento extends Component {
 
   public void setyCantoInferior(int yCantoInferior) {
     this.yCantoInferior = yCantoInferior;
+  }
+
+  private void setArea() {
+    xCantoDireito = xCantoEsquerdo + 25;
+    yCantoInferior = yCantoInferior + 25;
   }
 
 }

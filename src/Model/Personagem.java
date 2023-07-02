@@ -36,7 +36,16 @@ public abstract class Personagem {
 
   }
 
-  public void perderVida(int dano) {
+  public boolean perderVida(int dano) {
     vida -= dano;
+    return vida <= 0;
   }
+
+  public void ganharVida(int almento) {
+    if (vida + almento > estadoAtual.getVidaMaxima())
+      vida = estadoAtual.getVidaMaxima();
+    else
+      vida += almento;
+  }
+
 }

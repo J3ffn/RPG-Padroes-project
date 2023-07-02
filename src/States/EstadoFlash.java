@@ -9,11 +9,6 @@ public class EstadoFlash extends EstadoPersonagem {
     aumentarDefesa();
   }
 
-  public EstadoFlash(int valorComida) {
-    aumentarVelocidade(valorComida);
-    aumentarDefesa();
-  }
-
   public void aumentarDefesa() {
     int novaDefesa = (int) (getDefesa() * (getVelocidade() / 3));
     setDefesa(novaDefesa);

@@ -43,7 +43,6 @@ public class TelaPrincipal {
     addPocoes(p);
     // jframe.addKeyListener(new OuvintePassosPersonagem(p));
 
-    layeredPane.addKeyListener(new GerenciadorTeclado(p, layeredPane.getComponents()));
     layeredPane.setFocusable(true);
     jframe.add(layeredPane);
   }
@@ -54,5 +53,6 @@ public class TelaPrincipal {
       System.out.println(pocao.getX());
       layeredPane.add(pocao, JLayeredPane.DEFAULT_LAYER);
     });
+    layeredPane.addKeyListener(new GerenciadorTeclado(p, gerenciadorPocoes));
   }
 }

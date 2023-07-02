@@ -32,4 +32,8 @@ public class GerenciadorPocoes extends GerenciadorElementos {
     elementos.add(copoLeite);
   }
 
+  public void aplicarEfeitos(Pocao pocao) {
+
+  }
+
 }

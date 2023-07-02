@@ -23,7 +23,8 @@ public class Elemento extends Component {
   }
 
   public boolean isDentro(int x, int y) {
-    if (xCantoEsquerdo < x && xCantoDireito > x) {
+    if (xCantoEsquerdo <= x && xCantoDireito >= x) {
+      System.out.println(xCantoEsquerdo + " " + xCantoDireito);
       if (yCantoSuperior < y && yCantoInferior > y) {
         return true;
       }

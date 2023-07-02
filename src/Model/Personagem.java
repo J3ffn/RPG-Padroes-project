@@ -2,12 +2,18 @@ package Model;
 
 import States.EstadoPersonagem;
 
-public abstract class Personagem {
+public class Personagem {
+
   private EstadoPersonagem estadoAtual;
   private int vida;
+  private final static Personagem personagem = new Personagem();
 
   public int getVida() {
     return vida;
+  }
+
+  public static Personagem getPersonagem() {
+    return personagem;
   }
 
   public void setVida(int vida) {

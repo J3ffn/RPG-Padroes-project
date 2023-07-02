@@ -1,6 +1,7 @@
 package Ouvintes;
 
 import Model.GerenciadorCaminhos;
+import Model.Personagem;
 import View.PersonagemView;
 
 import java.awt.event.KeyEvent;
@@ -15,6 +16,8 @@ public class OuvintePassosPersonagem {
 
   private PersonagemView personagemView;
 
+  private Personagem personagem;
+
   private int x = 349, y = 275;
 
   private Map<Integer, KeyFunction<String>> keys;
@@ -22,6 +25,7 @@ public class OuvintePassosPersonagem {
   private GerenciadorCaminhos gerenciadorCaminhos;
 
   public OuvintePassosPersonagem(PersonagemView personagemView) {
+    personagem = Personagem.getPersonagem();
     this.personagemView = personagemView;
     this.gerenciadorCaminhos = new GerenciadorCaminhos();
     addKeys();

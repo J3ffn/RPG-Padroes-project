@@ -57,7 +57,7 @@ public class TelaPrincipal {
   }
   public void adicionarInimigos() {
 	 String lado = "img/sprites/Zombie/Idle_Zombie_lado_esquerdo.png";
-	 jframe.add(new ZombieView(lado, 510, 255));
+	 jframe.add(new ZombieView(new Zombie(), lado, 510, 255));
 	 
 	 lado = "img/sprites/Zombie/Idle_Zombie_lado_direito.png";
 	 jframe.add(new ZombieView(lado, 510, 146));

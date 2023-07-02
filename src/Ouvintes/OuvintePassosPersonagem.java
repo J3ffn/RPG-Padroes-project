@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class OuvintePassosPersonagem implements KeyListener {
+public class OuvintePassosPersonagem {
 
   private interface KeyFunction<T> {
     T execute();
@@ -22,19 +22,16 @@ public class OuvintePassosPersonagem implements KeyListener {
 
   private GerenciadorCaminhos gerenciadorCaminhos;
 
-  // private OuvintePocoes ouvintePocoes;
-
   public OuvintePassosPersonagem(PersonagemView personagemView) {
     this.personagemView = personagemView;
     gerenciadorCaminhos = new GerenciadorCaminhos();
     keys = new HashMap<>();
-    // this.ouvintePocoes = new OuvintePocoes();
     addKeys();
   }
 
   private void addKeys() {
 
-    int tamanhoPasso = 2;
+    int tamanhoPasso = 1;
 
     keys.put(KeyEvent.VK_LEFT, () -> {
       if (!gerenciadorCaminhos.isFora(x - tamanhoPasso, y)) {
@@ -67,28 +64,20 @@ public class OuvintePassosPersonagem implements KeyListener {
 
   }
 
-  @Override
-  public void keyTyped(KeyEvent e) {
-  }
-
-  @Override
   public void keyPressed(KeyEvent e) {
     Integer keyPress = e.getKeyCode();
     String caminhoSprite = "";
 
     // if (ouvintePocoes.emCima(x, y)) {
-    // ouvintePocoes.componentHidden(e);
+    // // ouvintePocoes.componentHidden(e);
     // System.out.println("Passou em cima");
     // }
-
+    
     if (keys.containsKey(keyPress)) {
       caminhoSprite = keys.get(keyPress).execute();
       personagemView.moveGraphics(x, y, caminhoSprite);
     }
-  }
 
-  @Override
-  public void keyReleased(KeyEvent e) {
   }
 
 }

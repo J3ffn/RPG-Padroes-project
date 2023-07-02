@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public abstract class EstadoPersonagem {
 
-  private static float velocidade;
+  private float velocidade;
   private int defesa;
   private int ataque;
   private int vidaMaxima;

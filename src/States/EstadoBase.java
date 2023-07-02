@@ -3,7 +3,7 @@ package States;
 public class EstadoBase extends EstadoPersonagem {
 
   public EstadoBase() {
-    setVelocidade(2);
+    setVelocidade(1);
     setDefesa(0);
     setAtaque(2);
     setVidaMaxima(10);

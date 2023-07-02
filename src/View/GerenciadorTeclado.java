@@ -46,10 +46,10 @@ public class GerenciadorTeclado implements KeyListener {
       Integer xEsq = p.getxCantoEsquerdo();
       Integer xDir = p.getxCantoDireito();
       // if () { // TODO Refazer alogica dessa condição e adicionar o efeito de cada
-                                                   // estado no personagem em cima da poção
-        System.out.println("Está no meio");
+      // estado no personagem em cima da poção
+      System.out.println("Está no meio");
 
-      }
+      // }
     });
   }
 

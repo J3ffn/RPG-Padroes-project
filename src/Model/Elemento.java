@@ -10,7 +10,7 @@ public class Elemento extends Component {
   private int yCantoInferior;
 
   public Elemento(int xEsquerdo, int yCima) {
-    xCantoEsquerdo = xEsquerdo;
+    xCantoEsquerdo = xEsquerdo - 5;
     yCantoSuperior = yCima;
     setArea();
   }
@@ -22,9 +22,8 @@ public class Elemento extends Component {
     this.yCantoInferior = yCantoInferior;
   }
 
-  public boolean isDentro(int x, int y) {
-    if (xCantoEsquerdo <= x && xCantoDireito >= x) {
-      System.out.println(xCantoEsquerdo + " " + xCantoDireito);
+  public boolean isDentro(float x, float y) {
+    if (xCantoEsquerdo < x && xCantoDireito > x) {
       if (yCantoSuperior < y && yCantoInferior > y) {
         return true;
       }
@@ -65,8 +64,8 @@ public class Elemento extends Component {
   }
 
   private void setArea() {
-    xCantoDireito = xCantoEsquerdo + 25;
-    yCantoInferior = yCantoInferior + 25;
+    xCantoDireito = xCantoEsquerdo + 10;
+    yCantoInferior = yCantoSuperior + 13;
   }
 
 }

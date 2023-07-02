@@ -11,7 +11,7 @@ import java.util.Map;
 public class OuvintePassosPersonagem {
 
   private interface KeyFunction<T> {
-    T execute();
+    T execute(float velocidade);
   }
 
   private PersonagemView personagemView;
@@ -34,37 +34,34 @@ public class OuvintePassosPersonagem {
   private void addKeys() {
     keys = new HashMap<>();
 
-    int tamanhoPasso = 2;
-
-    keys.put(KeyEvent.VK_LEFT, () -> {
+    keys.put(KeyEvent.VK_LEFT, (tamanhoPasso) -> {
       if (gerenciadorCaminhos.isFora(x - tamanhoPasso, y) != null) {
         x -= tamanhoPasso;
         return "img/sprites/Player/esquerda.png";
       }
       return null;
     });
-    keys.put(KeyEvent.VK_RIGHT, () -> {
+    keys.put(KeyEvent.VK_RIGHT, (tamanhoPasso) -> {
       if (gerenciadorCaminhos.isFora(x + tamanhoPasso, y) != null) {
         x += tamanhoPasso;
         return "img/sprites/Player/direita.png";
       }
       return null;
     });
-    keys.put(KeyEvent.VK_UP, () -> {
+    keys.put(KeyEvent.VK_UP, (tamanhoPasso) -> {
       if (gerenciadorCaminhos.isFora(x, y - tamanhoPasso) != null) {
         y -= tamanhoPasso;
         return "img/sprites/Player/traseira.png";
       }
       return null;
     });
-    keys.put(KeyEvent.VK_DOWN, () -> {
+    keys.put(KeyEvent.VK_DOWN, (tamanhoPasso) -> {
       if (gerenciadorCaminhos.isFora(x, y + tamanhoPasso) != null) {
         y += tamanhoPasso;
         return "img/sprites/Player/frente.png";
       }
       return null;
     });
-
   }
 
   public void keyPressed(KeyEvent e) {
@@ -72,7 +69,7 @@ public class OuvintePassosPersonagem {
     String caminhoSprite = "";
 
     if (keys.containsKey(keyPress)) {
-      caminhoSprite = keys.get(keyPress).execute();
+      caminhoSprite = keys.get(keyPress).execute(personagem.getEstadoAtual().getVelocidade());
       personagemView.moveGraphics(x, y, caminhoSprite);
     }
   }

@@ -1,18 +1,23 @@
 package Model;
 
+import States.EstadoBase;
 import States.EstadoPersonagem;
 
 public class Personagem {
 
   private EstadoPersonagem estadoAtual;
   private int vida;
-  private final static Personagem personagem = new Personagem();
+  private static Personagem personagem;
 
   public int getVida() {
     return vida;
   }
 
-  public static Personagem getPersonagem() {
+  public synchronized static Personagem getPersonagem() {
+    if (personagem == null)
+      personagem = new Personagem();
+    if (personagem.getEstadoAtual() == null)
+      personagem.setEstadoAtual(new EstadoBase());
     return personagem;
   }
 

@@ -5,7 +5,7 @@ import Model.Personagem;
 public class EstadoFlash extends EstadoPersonagem {
 
   public EstadoFlash() {
-    aumentarVelocidade(4);
+    aumentarVelocidade(8);
     aumentarDefesa();
   }
 
@@ -15,8 +15,7 @@ public class EstadoFlash extends EstadoPersonagem {
   }
 
   public void aumentarVelocidade(int valor) {
-    float novaVelocidade = getVelocidade() * valor;
-    setVelocidade(novaVelocidade);
+    setVelocidade(valor);
   }
 
   public boolean atacar(Personagem inimigo) {

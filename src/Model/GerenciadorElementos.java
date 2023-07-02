@@ -16,7 +16,7 @@ public abstract class GerenciadorElementos {
 
   public abstract void CriarElementos();
 
-  public Elemento isFora(int x, int y) {
+  public Elemento isFora(float x, float y) {
     for (Elemento elemento : elementos)
       if (elemento.isDentro(x, y))
         return elemento;

@@ -14,20 +14,20 @@ public class GerenciadorPocoes extends GerenciadorElementos {
     hidromel.setEstado(new EstadoBebado());
     elementos.add(hidromel);
 
-    Pocao pocaoVelocidade = new PocaoVelocidade(216, 370, "img/pocoes/cura.png");
+    Pocao pocaoVelocidade = new PocaoVelocidade(323, 152, "img/pocoes/velocidade.png");
     pocaoVelocidade.setNome("Poçao de velocidade");
     pocaoVelocidade.setName("Poção de Velocidade");
     pocaoVelocidade.setEstado(new EstadoFlash());
     elementos.add(pocaoVelocidade);
 
-    Pocao pocaoVida = new PocaoVida(323, 152, "img/pocoes/velocidade.png");
+    Pocao pocaoVida = new PocaoVida(216, 370, "img/pocoes/cura.png");
     pocaoVida.setNome("Poçao de vida");
     pocaoVida.setName("Poção de Vida");
     elementos.add(pocaoVida);
 
-    Pocao copoLeite = new PocaoLeite(153, 173, "img/pocoes/furia.png");
+    Pocao copoLeite = new PocaoLeite(300, 213, "img/pocoes/leite.png");
     copoLeite.setNome("Copo de leite");
-    pocaoVelocidade.setName("Poção de Leite");
+    copoLeite.setName("Poção de Leite");
     copoLeite.setEstado(new EstadoBase());
     elementos.add(copoLeite);
   }

@@ -76,4 +76,6 @@ public abstract class Pocao extends Elemento {
     g.drawImage(imagem, 0, 0, imagem.getWidth() - 5, imagem.getHeight() - 5, null);
   }
 
+  
+
 }

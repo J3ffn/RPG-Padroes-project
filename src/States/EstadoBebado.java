@@ -15,7 +15,8 @@ public class EstadoBebado extends EstadoPersonagem {
   @Override
   public boolean atacar(Personagem inimigo) {
     Random random = new Random();
-    int numero = random.nextInt(11);
+    int numero = random.nextInt(7);
+    System.out.println(numero);
 
     return (numero % 2 != 0) ? super.atacar(inimigo) : false;
     /*

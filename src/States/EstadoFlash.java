@@ -7,6 +7,8 @@ public class EstadoFlash extends EstadoPersonagem {
   public EstadoFlash() {
     aumentarVelocidade(8);
     aumentarDefesa();
+    setAtaque(2);
+    setVidaMaxima(20);
   }
 
   public void aumentarDefesa() {

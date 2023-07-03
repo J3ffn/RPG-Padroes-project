@@ -47,22 +47,26 @@ public class GerenciadorTeclado implements KeyListener {
       pocao.setyCantoInferior(0);
       pocao.aplicarEfeitos(personagem);
     }
+    
     for(ZombieView z : z) {
 	    if (z.isPerto(x, y) && z.isVivo()) {
-	    	System.out.println("De frente com o zumbi - Hoje às 00:30");
+	    	System.out.println("De frente com o zumbi, ataque!");
 	    	
 	    	int sprite = 1;
 	    	if(sprite == 4) {
 	    		sprite = 1;
 	    	}
 	    	personagemView.setSprite("img/sprites/Player/atirar"+ sprite +".png");
-	    	personagem.atacar(z.getZumbi());
+	    	boolean atacou = personagem.atacar(z.getZumbi());
+	    	if(!atacou)
+	    		System.out.println("Errou o ataque");
 	    	try {
 				TimeUnit.SECONDS.sleep(1);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+	    	
 	    	z.setSprite("img/sprites/Zombie/atacar.png");
 	    	z.atacar(personagem);
 	    	

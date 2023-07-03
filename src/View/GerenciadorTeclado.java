@@ -2,6 +2,8 @@ package View;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import Model.GerenciadorPocoes;
 import Model.Personagem;
@@ -14,14 +16,14 @@ public class GerenciadorTeclado implements KeyListener {
   private PersonagemView personagemView;
   private OuvintePassosPersonagem ouvintePersonagem;
   private GerenciadorPocoes gerenciadorPocoes;
-  private ZombieView zombie;
+  private ArrayList<ZombieView> z;
 
-  public GerenciadorTeclado(PersonagemView p, GerenciadorPocoes gerenciadorPocoes, ZombieView zombieView) {
+  public GerenciadorTeclado(PersonagemView p, GerenciadorPocoes gerenciadorPocoes, ArrayList<ZombieView> zombieView) {
     personagemView = p;
     personagem = Personagem.getPersonagem();
     ouvintePersonagem = new OuvintePassosPersonagem(p);
     this.gerenciadorPocoes = gerenciadorPocoes;
-    this.zombie = zombieView;
+    this.z = zombieView;
   }
 
   @Override
@@ -39,20 +41,38 @@ public class GerenciadorTeclado implements KeyListener {
       pocao.setyCantoInferior(0);
       pocao.aplicarEfeitos(personagem);
     }
-    if (x >= zombie.getX() - 20 && (y >= zombie.getY() - 40 && y <= zombie.getX() + 30) && zombie.isVivo()) {
-        System.out.println("De frente com o zumbi");
-        personagemView.setSprite("img/sprites/Player/atirar1.png");
-        zombie.setSprite("img/sprites/Zombie/atacar.png");
-        personagem.atacar(zombie.getZombie());
-        Object object = new Object();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        }
- }
+    
+    for(ZombieView z : z) {
+	    if (z.isPerto(x, y) && z.isVivo()) {
+	    	System.out.println("De frente com o zumbi, ataque!");
+	    	
+	    	int sprite = 1;
+	    	if(sprite == 4) {
+	    		sprite = 1;
+	    	}
+	    	personagemView.setSprite("img/sprites/Player/atirar"+ sprite +".png");
+	    	boolean atacou = personagem.atacar(z.getZumbi());
+	    	if(!atacou)
+	    		System.out.println("Errou o ataque");
+	    	try {
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
+	    	
+	    	z.setSprite("img/sprites/Zombie/atacar.png");
+	    	z.atacar(personagem);
+	    	
+	    	if(!z.isVivo()) {
+	    		z.setSprite("img/sprites/Zombie/morto.png");
+	    	}
+	    	
+	    	sprite++;
+	    }
+    }
   }
-
+  
+  
   @Override
   public void keyTyped(KeyEvent e) {
   }
@@ -60,5 +80,7 @@ public class GerenciadorTeclado implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
   }
+  
+  
 
 }

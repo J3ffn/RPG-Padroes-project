@@ -59,8 +59,14 @@ public class ZombieView extends Component {
     return (zumbi != null) ? zumbi.isVivo() : false;
   }
 
-  public Zombie getZombie() {
+  public Zombie getZumbi() {
     return zumbi;
+  }
+
+  public boolean isPerto(int x, int y) {
+    return (zumbi != null)
+        ? (x >= this.getX() - 20 && (y >= this.getY() - 20 && y <= this.getY() + 20) && x <= this.getX() + 20)
+        : false;
   }
 
 }

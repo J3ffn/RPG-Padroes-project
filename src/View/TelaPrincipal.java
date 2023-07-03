@@ -1,5 +1,7 @@
 package View;
 
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 import Model.GerenciadorPocoes;
@@ -65,22 +67,39 @@ public class TelaPrincipal {
   }
 
   public void adicionarInimigos(GerenciadorPocoes gerenciadorPocoes, PersonagemView p) {
+	ArrayList<ZombieView> zombies = new ArrayList<ZombieView>();  
     String lado = "img/sprites/Zombie/Idle_Zombie_lado_esquerdo.png";
-    ZombieView zombieView = new ZombieView(new Zombie(), lado, 510, 255);
+    Zombie z1 = new Zombie();
+    ZombieView zombieView = new ZombieView(z1, lado, 510, 255);
     layeredPane.add(zombieView, JLayeredPane.DEFAULT_LAYER);
-    setOuvinteLayer(new GerenciadorTeclado(p, gerenciadorPocoes, zombieView));
+    zombies.add(zombieView);
 
     lado = "img/sprites/Zombie/Idle_Zombie_lado_direito.png";
-    jframe.add(new ZombieView(new Zombie(), lado, 510, 146));
-    jframe.add(new ZombieView(lado, 520, 370));
+    ZombieView z2 = new ZombieView(new Zombie(), lado, 510, 146);
+    jframe.add(z2);
+    zombies.add(z2);
+
+    z2 = new ZombieView(new Zombie(), lado, 520, 370);
+    jframe.add(z2);
+    zombies.add(z2);
 
     lado = "img/sprites/Zombie/Idle_Zombie_tipo_2.png";
-    jframe.add(new ZombieView(lado, 490, 370));
-    jframe.add(new ZombieView(lado, 470, 366));
-    jframe.add(new ZombieView(lado, 560, 153));
-    jframe.add(new ZombieView(lado, 560, 210));
+    z2 = new ZombieView(new Zombie(), lado, 490, 370);
+    jframe.add(z2);
+    zombies.add(z2);
+    
+    z2 = new ZombieView(new Zombie(), lado, 470, 366);
+    jframe.add(z2);
+    zombies.add(z2);
+    
+    z2 = new ZombieView(new Zombie(), lado, 560, 310);
+    jframe.add(z2);
+    zombies.add(z2);
+    
+    z2 = new ZombieView(new Zombie(), lado, 450, 180);
+    jframe.add(z2);
+    zombies.add(z2);
 
-    jframe.add(new ZombieView(560, 310));
-    jframe.add(new ZombieView(450, 180));
+    setOuvinteLayer(new GerenciadorTeclado(p, gerenciadorPocoes, zombies));
   }
 }

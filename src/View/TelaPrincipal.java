@@ -71,7 +71,7 @@ public class TelaPrincipal {
     setOuvinteLayer(new GerenciadorTeclado(p, gerenciadorPocoes, zombieView));
 
     lado = "img/sprites/Zombie/Idle_Zombie_lado_direito.png";
-    jframe.add(new ZombieView(lado, 510, 146));
+    jframe.add(new ZombieView(new Zombie(), lado, 510, 146));
     jframe.add(new ZombieView(lado, 520, 370));
 
     lado = "img/sprites/Zombie/Idle_Zombie_tipo_2.png";

@@ -2,11 +2,15 @@ package View;
 
 import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 import Model.Personagem;
 import Model.Zombie;
@@ -35,6 +39,7 @@ public class ZombieView extends Component {
 	    caminhoSprite = path;
 	  }
 	  
+
 	  @Override
 	  public void paint(Graphics g) {
 
@@ -57,4 +62,13 @@ public class ZombieView extends Component {
 	  public boolean isVivo() {
 		    return (zumbi != null)? zumbi.isVivo(): false;
 	  }
+
+	  public Zombie getZumbi() {
+		return zumbi;
+	  }
+	
+	  public boolean isPerto(int x, int y) {
+		return (zumbi != null)? (x >= this.getX() - 20 && (y >= this.getY() - 40 && y <= this.getX() + 30)) : false;
+	  }
+	  
 }

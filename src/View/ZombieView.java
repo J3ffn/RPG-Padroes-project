@@ -68,7 +68,7 @@ public class ZombieView extends Component {
 	  }
 	
 	  public boolean isPerto(int x, int y) {
-		return (zumbi != null)? (x >= this.getX() - 20 && (y >= this.getY() - 40 && y <= this.getX() + 30)) : false;
+		return (zumbi != null)? (x >= this.getX() - 20 && (y >= this.getY() - 20 && y <= this.getY() + 20) && x <= this.getX() + 20) : false;
 	  }
 	  
 }

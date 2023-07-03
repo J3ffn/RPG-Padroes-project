@@ -38,7 +38,7 @@ public class PersonagemView extends Component {
       throw new RuntimeException(e);
     }
 
-    g.drawImage(image, x, y, 15, 27, null);
+    g.drawImage(image, x, y, 20, 27, null);
   }
 
   public int getSpriteX() {

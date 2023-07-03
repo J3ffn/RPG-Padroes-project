@@ -1,6 +1,5 @@
 package View;
 
-import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -40,9 +39,18 @@ public class GerenciadorTeclado implements KeyListener {
       pocao.setyCantoInferior(0);
       pocao.aplicarEfeitos(personagem);
     }
-    if (x >= zombie.getX() - 20 && (y >= zombie.getY() - 40 && y <= zombie.getX() + 30)) {
-      System.out.println("De frente com zombi");
-    }
+    if (x >= zombie.getX() - 20 && (y >= zombie.getY() - 40 && y <= zombie.getX() + 30) && zombie.isVivo()) {
+        System.out.println("De frente com o zumbi");
+        personagemView.setSprite("img/sprites/Player/atirar1.png");
+        zombie.setSprite("img/sprites/Zombie/atacar.png");
+        personagem.atacar(zombie.getZombie());
+        Object object = new Object();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+ }
   }
 
   @Override

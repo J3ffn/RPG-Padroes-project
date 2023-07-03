@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Apocalypse Character Pack">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/img/Apocalypse Character Pack.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

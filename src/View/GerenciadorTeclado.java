@@ -1,8 +1,15 @@
 package View;
 
-import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import Model.GerenciadorPocoes;
 import Model.Personagem;
@@ -40,11 +47,33 @@ public class GerenciadorTeclado implements KeyListener {
       pocao.setyCantoInferior(0);
       pocao.aplicarEfeitos(personagem);
     }
-    if (x >= zombie.getX() - 20 && (y >= zombie.getY() - 40 && y <= zombie.getX() + 30)) {
-      System.out.println("De frente com zombi");
+    if (zombie.isPerto(x, y) && zombie.isVivo()) {
+    	System.out.println("De frente com o zumbi - Hoje às 00:30");
+    	
+    	int sprite = 1;
+    	if(sprite == 4) {
+    		sprite = 1;
+    	}
+    	personagemView.setSprite("img/sprites/Player/atirar"+ sprite +".png");
+    	personagem.atacar(zombie.getZumbi());
+    	try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    	zombie.setSprite("img/sprites/Zombie/atacar.png");
+    	zombie.atacar(personagem);
+    	
+    	if(!zombie.isVivo()) {
+    		zombie.setSprite("img/sprites/Zombie/morto.png");
+    	}
+    	
+    	sprite++;
     }
   }
-
+  
+  
   @Override
   public void keyTyped(KeyEvent e) {
   }
@@ -52,5 +81,7 @@ public class GerenciadorTeclado implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
   }
+  
+  
 
 }

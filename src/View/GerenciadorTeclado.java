@@ -59,7 +59,6 @@ public class GerenciadorTeclado implements KeyListener {
           personagemView.setSprite("img/sprites/Player/atacando/atirarCima.png");
 
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-          personagemView.setSprite("img/sprites/Player/atacando/atirar2.png");
           if (vidaZombie - ataquePersonagem <= 0)
             z.setSprite("img/sprites/Zombie/morto.png");
           personagem.atacar(z.getZumbi());

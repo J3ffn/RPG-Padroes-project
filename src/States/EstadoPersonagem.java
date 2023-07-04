@@ -82,11 +82,10 @@ public abstract class EstadoPersonagem {
   }
   
   public String toString() {
-    return "{" +
-        " velocidade='" + getVelocidade() + "'" +
-        ", defesa='" + getDefesa() + "'" +
-        ", ataque='" + getAtaque() + "'" +
-        ", vidaMaxima='" + getVidaMaxima() + "'" +
-        "}";
+    return "" +
+        " velocidade=" + getVelocidade() + "\n" +
+        ", defesa=" + getDefesa() + "\n" +
+        ", ataque=" + getAtaque() + "\n" +
+        "";
   }
 }

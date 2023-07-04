@@ -10,6 +10,7 @@ public class EstadoFlash extends EstadoPersonagem {
     setAtaque(2);
     setVidaMaxima(20);
   }
+  
 
   public void aumentarDefesa() {
     int novaDefesa = (int) (getDefesa() * (getVelocidade() / 3));

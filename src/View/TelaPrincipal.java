@@ -1,16 +1,19 @@
 package View;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
 import Model.GerenciadorPocoes;
+import Model.Personagem;
 import Model.Zombie;
 
 public class TelaPrincipal {
 
   private static JFrame jframe = null;
   private JLayeredPane layeredPane;
+  private static JLabel texto;
 
   public static JFrame getJframe() {
     return jframe;
@@ -47,8 +50,10 @@ public class TelaPrincipal {
 
   public void addSprites() {
     PersonagemView p = new PersonagemView();
+    
     layeredPane.add(p, JLayeredPane.PALETTE_LAYER);
     addPocoes(p);
+    adicionarTexto();
 
     layeredPane.setFocusable(true);
     jframe.add(layeredPane);
@@ -101,5 +106,15 @@ public class TelaPrincipal {
     zombies.add(z2);
 
     setOuvinteLayer(new GerenciadorTeclado(p, gerenciadorPocoes, zombies));
+  }
+  public void adicionarTexto() {
+	  texto = new JLabel(Personagem.getPersonagem().getEstadoAtual().toString());
+	  texto.setForeground(Color.RED);;
+	  texto.setBounds(0, 0, 500, 15);
+	  texto.setVisible(true);
+	  jframe.add(texto);
+  }
+  public static JLabel getTexto() {
+	  return texto;
   }
 }

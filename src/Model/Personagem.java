@@ -12,7 +12,9 @@ public class Personagem {
   public int getVida() {
     return vida;
   }
-
+  public Personagem() {
+	  vida = 10;
+  }
   public synchronized static Personagem getPersonagem() {
     if (personagem == null)
       personagem = new Personagem();
@@ -53,10 +55,11 @@ public class Personagem {
   }
 
   public void ganharVida(int almento) {
-    if (vida + almento > estadoAtual.getVidaMaxima())
-      vida = estadoAtual.getVidaMaxima();
-    else
       vida += almento;
   }
+  @Override
+	public String toString() {
+		return estadoAtual.toString() + ", vida = " + vida + "\n";
+	}
 
 }

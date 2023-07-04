@@ -34,8 +34,13 @@ public class GerenciadorTeclado implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
+	  
     ouvintePersonagem.keyPressed(e);
-
+    JLabel t = TelaPrincipal.getTexto();
+    t.setVisible(false);
+    t.setText(personagem.toString());
+    t.setVisible(true);
+    
     Integer x = personagemView.getSpriteX();
     Integer y = personagemView.getSpriteY();
     Pocao pocao = (Pocao) gerenciadorPocoes.isFora(x, y);
@@ -52,14 +57,11 @@ public class GerenciadorTeclado implements KeyListener {
 	    if (z.isPerto(x, y) && z.isVivo()) {
 	    	System.out.println("De frente com o zumbi, ataque!");
 	    	
-	    	int sprite = 1;
-	    	if(sprite == 4) {
-	    		sprite = 1;
-	    	}
-	    	personagemView.setSprite("img/sprites/Player/atirar"+ sprite +".png");
+	    	personagemView.setSprite("img/sprites/Player/atirar1.png");
 	    	boolean atacou = personagem.atacar(z.getZumbi());
 	    	if(!atacou)
 	    		System.out.println("Errou o ataque");
+	    	
 	    	try {
 				TimeUnit.SECONDS.sleep(1);
 			} catch (InterruptedException e1) {
@@ -73,8 +75,6 @@ public class GerenciadorTeclado implements KeyListener {
 	    	if(!z.isVivo()) {
 	    		z.setSprite("img/sprites/Zombie/morto.png");
 	    	}
-	    	
-	    	sprite++;
 	    }
     }
   }

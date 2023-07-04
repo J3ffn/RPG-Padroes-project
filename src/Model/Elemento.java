@@ -65,9 +65,14 @@ public class Elemento extends Component {
   }
 
   private void setArea() {
-
-    xCantoDireito = xCantoEsquerdo + 10;
-    yCantoInferior = yCantoSuperior + 13;
+    if (getName().equalsIgnoreCase("Leite")) {
+      yCantoInferior = yCantoSuperior + 5;
+      xCantoEsquerdo -= 15;
+      xCantoDireito = xCantoEsquerdo + 20;
+    } else {
+      xCantoDireito = xCantoEsquerdo + 10;
+      yCantoInferior = yCantoSuperior + 13;
+    }
 
   }
 

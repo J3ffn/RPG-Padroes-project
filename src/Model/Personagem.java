@@ -29,7 +29,7 @@ public class Personagem {
     this.vida = vida;
   }
 
-  public synchronized EstadoPersonagem getEstadoAtual() {
+  public EstadoPersonagem getEstadoAtual() {
     return estadoAtual;
   }
 
@@ -52,14 +52,13 @@ public class Personagem {
     return vida <= 0;
   }
 
-  public void ganharVida(int almento) {
-    vida += almento;
+  public void ganharVida(int aumento) {
+    vida += aumento;
   }
 
   @Override
   public String toString() {
-    return estadoAtual.toString() + "," + //
-        " vida = " + vida + "\n";
+    return "Vida = " + vida + "<br>" + estadoAtual.toString();
   }
 
 }

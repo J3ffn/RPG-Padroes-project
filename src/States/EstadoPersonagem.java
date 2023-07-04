@@ -12,22 +12,8 @@ public abstract class EstadoPersonagem {
   private float velocidade;
   private int defesa;
   private int ataque;
-  private int vidaMaxima;
-  private BufferedImage sprite;
-  Personagem personagem;
-  
-
-  public BufferedImage getSprite() {
-    return sprite;
-  }
-
-  public void setSprite(String caminho) {
-    try {
-      sprite = ImageIO.read(new File(caminho));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
+  private int vidaMaxima; 
+  protected Personagem personagem;
 
   public float getVelocidade() {
     return velocidade;
@@ -70,22 +56,20 @@ public abstract class EstadoPersonagem {
       return true;
     }
   }
-  
+
   public void ajustarVidaPersonagem() {
-	if(personagem == null)
-		personagem = Personagem.getPersonagem();
-	int vidaMaximaAtual = this.getVidaMaxima();
+    if (personagem == null)
+      personagem = Personagem.getPersonagem();
+    int vidaMaximaAtual = this.getVidaMaxima();
     if (personagem.getVida() > vidaMaximaAtual) {
       int diferenca = personagem.getVida() - vidaMaximaAtual;
       personagem.perderVida(diferenca);
     }
   }
-  
+
   public String toString() {
-    return "" +
-        " velocidade=" + getVelocidade() + "\n" +
-        ", defesa=" + getDefesa() + "\n" +
-        ", ataque=" + getAtaque() + "\n" +
-        "";
+    return "Velocidade= " + getVelocidade() + "<br>" +
+        "Defesa= " + getDefesa() + "<br>" +
+        "Ataque= " + getAtaque();
   }
 }

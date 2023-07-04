@@ -109,9 +109,9 @@ public class TelaPrincipal {
   }
 
   public void adicionarTexto() {
-    texto = new JLabel(Personagem.getPersonagem().toString());
-    texto.setForeground(Color.BLACK);
-    texto.setBounds(0, 0, 500, 15);
+    texto = new JLabel("<html>" + Personagem.getPersonagem().toString() + "</html>");
+    texto.setForeground(Color.RED);
+    texto.setBounds(0, 210, 125, 95);
     texto.setVisible(true);
     jframe.add(texto);
   }

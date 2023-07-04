@@ -36,11 +36,6 @@ public class GerenciadorTeclado implements KeyListener {
     if (personagem.isVivo())
       ouvintePersonagem.keyPressed(e);
 
-    JLabel t = TelaPrincipal.getTexto();
-    t.setVisible(false);
-    t.setText(personagem.toString());
-    t.setVisible(true);
-
     Integer x = personagemView.getSpriteX();
     Integer y = personagemView.getSpriteY();
     Pocao pocao = (Pocao) gerenciadorPocoes.isFora(x, y);

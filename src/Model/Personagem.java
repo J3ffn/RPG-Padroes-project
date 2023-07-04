@@ -31,11 +31,7 @@ public class Personagem {
 
   public void setEstadoAtual(EstadoPersonagem estadoAtual) {
     this.estadoAtual = estadoAtual;
-    int vidaMaximaAtual = getEstadoAtual().getVidaMaxima();
-    if (getVida() > vidaMaximaAtual) {
-      int diferenca = getVida() - vidaMaximaAtual;
-      perderVida(diferenca);
-    }
+    estadoAtual.ajustarVidaPersonagem();
   }
 
   public boolean atacar(Personagem inimigo) {

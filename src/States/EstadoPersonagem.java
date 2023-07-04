@@ -14,6 +14,8 @@ public abstract class EstadoPersonagem {
   private int ataque;
   private int vidaMaxima;
   private BufferedImage sprite;
+  Personagem personagem;
+  
 
   public BufferedImage getSprite() {
     return sprite;
@@ -68,7 +70,17 @@ public abstract class EstadoPersonagem {
       return true;
     }
   }
-
+  
+  public void ajustarVidaPersonagem() {
+	if(personagem == null)
+		personagem = Personagem.getPersonagem();
+	int vidaMaximaAtual = this.getVidaMaxima();
+    if (personagem.getVida() > vidaMaximaAtual) {
+      int diferenca = personagem.getVida() - vidaMaximaAtual;
+      personagem.perderVida(diferenca);
+    }
+  }
+  
   public String toString() {
     return "{" +
         " velocidade='" + getVelocidade() + "'" +

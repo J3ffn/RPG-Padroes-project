@@ -20,8 +20,8 @@ public abstract class Pocao extends Elemento {
     super(xCantoEsquerdo, xCantoDireito, yCantoSuperior, yCantoInferior);
   }
 
-  public Pocao(int xEsquerdo, int yCima, String caminho) {
-    super(xEsquerdo, yCima);
+  public Pocao(int xEsquerdo, int yCima, String caminho, String nome) {
+    super(xEsquerdo, yCima, nome);
     this.caminho = caminho;
     setBounds(xEsquerdo, yCima, 79, 88);
 

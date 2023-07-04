@@ -9,9 +9,10 @@ public class Elemento extends Component {
   private int xCantoDireito;
   private int yCantoInferior;
 
-  public Elemento(int xEsquerdo, int yCima) {
+  public Elemento(int xEsquerdo, int yCima, String name) {
     xCantoEsquerdo = xEsquerdo - 5;
     yCantoSuperior = yCima;
+    setName(name);
     setArea();
   }
 
@@ -64,8 +65,10 @@ public class Elemento extends Component {
   }
 
   private void setArea() {
+
     xCantoDireito = xCantoEsquerdo + 10;
     yCantoInferior = yCantoSuperior + 13;
+
   }
 
 }

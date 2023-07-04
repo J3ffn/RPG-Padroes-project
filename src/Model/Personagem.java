@@ -53,10 +53,13 @@ public class Personagem {
   }
 
   public void ganharVida(int almento) {
-    if (vida + almento > estadoAtual.getVidaMaxima())
-      vida = estadoAtual.getVidaMaxima();
-    else
-      vida += almento;
+    vida += almento;
+  }
+
+  @Override
+  public String toString() {
+    return estadoAtual.toString() + "," + //
+        " vida = " + vida + "\n";
   }
 
 }

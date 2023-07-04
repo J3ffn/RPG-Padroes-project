@@ -5,7 +5,7 @@ import States.EstadoBebado;
 public class PocaoHidromel extends Pocao {
 
   public PocaoHidromel(int xEsquerdo, int yCima, String caminho) {
-    super(xEsquerdo, yCima, caminho);
+    super(xEsquerdo, yCima, caminho, "Hidromel");
     // TODO Auto-generated constructor stub
   }
 

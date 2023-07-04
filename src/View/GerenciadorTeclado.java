@@ -3,6 +3,10 @@ package View;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+import javax.swing.JLabel;
 
 import Model.GerenciadorPocoes;
 import Model.Personagem;
@@ -16,6 +20,7 @@ public class GerenciadorTeclado implements KeyListener {
   private OuvintePassosPersonagem ouvintePersonagem;
   private GerenciadorPocoes gerenciadorPocoes;
   private ArrayList<ZombieView> zombies;
+  private List<String> codigo;
 
   public GerenciadorTeclado(PersonagemView p, GerenciadorPocoes gerenciadorPocoes, ArrayList<ZombieView> zombieView) {
     personagemView = p;
@@ -23,6 +28,7 @@ public class GerenciadorTeclado implements KeyListener {
     ouvintePersonagem = new OuvintePassosPersonagem(p);
     this.gerenciadorPocoes = gerenciadorPocoes;
     this.zombies = zombieView;
+    codigo = new ArrayList<>();
   }
 
   @Override
@@ -30,15 +36,22 @@ public class GerenciadorTeclado implements KeyListener {
     if (personagem.isVivo())
       ouvintePersonagem.keyPressed(e);
 
+    JLabel t = TelaPrincipal.getTexto();
+    t.setVisible(false);
+    t.setText(personagem.toString());
+    t.setVisible(true);
+
     Integer x = personagemView.getSpriteX();
     Integer y = personagemView.getSpriteY();
     Pocao pocao = (Pocao) gerenciadorPocoes.isFora(x, y);
-    if (pocao != null && !pocao.getName().endsWith("vida")) {
-      pocao.setVisible(false);
-      pocao.setxCantoEsquerdo(0);
-      pocao.setyCantoSuperior(0);
-      pocao.setxCantoDireito(0);
-      pocao.setyCantoInferior(0);
+    if (pocao != null) {
+      if (!pocao.getName().endsWith("vida")) {
+        pocao.setVisible(false);
+        pocao.setxCantoEsquerdo(0);
+        pocao.setyCantoSuperior(0);
+        pocao.setxCantoDireito(0);
+        pocao.setyCantoInferior(0);
+      }
       pocao.aplicarEfeitos(personagem);
     }
 

@@ -5,8 +5,7 @@ import States.EstadoFlash;
 public class PocaoVelocidade extends Pocao {
 
     public PocaoVelocidade(int xEsquerdo, int yCima, String caminho) {
-        super(xEsquerdo, yCima, caminho);
-        //TODO Auto-generated constructor stub
+        super(xEsquerdo, yCima, caminho, "Velocidade");
     }
 
     @Override

@@ -4,10 +4,10 @@ import Model.Personagem;
 
 public class EstadoFuria extends EstadoPersonagem {
   public EstadoFuria() {
-    setVelocidade(1.3f);
+    setVelocidade(2.3f);
     setDefesa(0);
     setAtaque(5);
-    setVidaMaxima(5);
+    setVidaMaxima(10);
   }
 
   @Override

@@ -27,12 +27,13 @@ public class GerenciadorTeclado implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
-    ouvintePersonagem.keyPressed(e);
+    if (personagem.isVivo())
+      ouvintePersonagem.keyPressed(e);
 
     Integer x = personagemView.getSpriteX();
     Integer y = personagemView.getSpriteY();
     Pocao pocao = (Pocao) gerenciadorPocoes.isFora(x, y);
-    if (pocao != null) {
+    if (pocao != null && !pocao.getName().endsWith("vida")) {
       pocao.setVisible(false);
       pocao.setxCantoEsquerdo(0);
       pocao.setyCantoSuperior(0);
@@ -40,9 +41,11 @@ public class GerenciadorTeclado implements KeyListener {
       pocao.setyCantoInferior(0);
       pocao.aplicarEfeitos(personagem);
     }
+
     Integer ataquePersonagem = personagem.getEstadoAtual().getAtaque();
     Integer yPersonagem = personagemView.getSpriteY();
     Integer xPersonagem = personagemView.getSpriteX();
+    ZombieView zombieMorto = null;
     for (ZombieView z : zombies) {
       Integer vidaZombie = z.getZumbi().getVida();
       Integer yZombie = z.getY();
@@ -60,36 +63,19 @@ public class GerenciadorTeclado implements KeyListener {
 
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
           if (vidaZombie - ataquePersonagem <= 0)
-            z.setSprite("img/sprites/Zombie/morto.png");
+            zombieMorto = z;
+          else
+            z.atacar(personagem);
           personagem.atacar(z.getZumbi());
+
         }
-
-        // System.out.println("De frente com o zumbi, ataque!");
-
-        // int sprite = 1;
-        // if(sprite == 4) {
-        // sprite = 1;
-        // }
-        // personagemView.setSprite("img/sprites/Player/atirar"+ sprite +".png");
-        // boolean atacou = personagem.atacar(z.getZumbi());
-        // if(!atacou)
-        // System.out.println("Errou o ataque");
-        // try {
-        // TimeUnit.SECONDS.sleep(1);
-        // } catch (InterruptedException e1) {
-        // e1.printStackTrace();
-        // }
-
-        // z.setSprite("img/sprites/Zombie/atacar.png");
-        // z.atacar(personagem);
-
-        // if(!z.isVivo()) {
-        // z.setSprite("img/sprites/Zombie/morto.png");
-        // }
-
-        // sprite++;
       }
     }
+    if (zombieMorto != null) {
+      zombieMorto.setSprite("img/sprites/Zombie/morto.png");
+    }
+    if (!personagem.isVivo())
+      System.exit(0);
   }
 
   @Override

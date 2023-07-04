@@ -22,7 +22,7 @@ public class GerenciadorPocoes extends GerenciadorElementos {
 
     Pocao pocaoVida = new PocaoVida(216, 370, "img/pocoes/cura.png");
     pocaoVida.setNome("Poçao de vida");
-    pocaoVida.setName("Poção de Vida");
+    pocaoVida.setName("Poção de vida");
     elementos.add(pocaoVida);
 
     Pocao copoLeite = new PocaoLeite(300, 213, "img/pocoes/leite.png");

@@ -9,7 +9,6 @@ public class PocaoVida extends Pocao{
     @Override
     public void aplicarEfeitos(Personagem personagem) {
         personagem.ganharVida(5);
-
     }
     
 }

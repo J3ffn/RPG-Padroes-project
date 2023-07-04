@@ -9,6 +9,10 @@ public class Personagem {
   private int vida;
   private static Personagem personagem;
 
+  public Personagem() {
+    vida = 10;
+  }
+
   public int getVida() {
     return vida;
   }
@@ -25,7 +29,7 @@ public class Personagem {
     this.vida = vida;
   }
 
-  public EstadoPersonagem getEstadoAtual() {
+  public synchronized EstadoPersonagem getEstadoAtual() {
     return estadoAtual;
   }
 

@@ -29,7 +29,7 @@ public class PersonagemView extends Component {
   @Override
   public void paint(Graphics g) {
     if (caminhoSprite == null)
-      caminhoSprite = "img/sprites/Player/frente.png";
+      caminhoSprite = "img/sprites/Player/andando/frente.png";
 
     BufferedImage image = null;
     try {

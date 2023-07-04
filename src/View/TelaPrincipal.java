@@ -67,7 +67,7 @@ public class TelaPrincipal {
   }
 
   public void adicionarInimigos(GerenciadorPocoes gerenciadorPocoes, PersonagemView p) {
-	ArrayList<ZombieView> zombies = new ArrayList<ZombieView>();  
+    ArrayList<ZombieView> zombies = new ArrayList<ZombieView>();
     String lado = "img/sprites/Zombie/Idle_Zombie_lado_esquerdo.png";
     Zombie z1 = new Zombie();
     ZombieView zombieView = new ZombieView(z1, lado, 510, 255);
@@ -76,28 +76,28 @@ public class TelaPrincipal {
 
     lado = "img/sprites/Zombie/Idle_Zombie_lado_direito.png";
     ZombieView z2 = new ZombieView(new Zombie(), lado, 510, 146);
-    jframe.add(z2);
+    layeredPane.add(z2, JLayeredPane.DEFAULT_LAYER);
     zombies.add(z2);
 
     z2 = new ZombieView(new Zombie(), lado, 520, 370);
-    jframe.add(z2);
+    layeredPane.add(z2, JLayeredPane.DEFAULT_LAYER);
     zombies.add(z2);
 
     lado = "img/sprites/Zombie/Idle_Zombie_tipo_2.png";
     z2 = new ZombieView(new Zombie(), lado, 490, 370);
-    jframe.add(z2);
+    layeredPane.add(z2, JLayeredPane.DEFAULT_LAYER);
     zombies.add(z2);
-    
+
     z2 = new ZombieView(new Zombie(), lado, 470, 366);
-    jframe.add(z2);
+    layeredPane.add(z2, JLayeredPane.DEFAULT_LAYER);
     zombies.add(z2);
-    
+
     z2 = new ZombieView(new Zombie(), lado, 560, 310);
-    jframe.add(z2);
+    layeredPane.add(z2, JLayeredPane.DEFAULT_LAYER);
     zombies.add(z2);
-    
+
     z2 = new ZombieView(new Zombie(), lado, 450, 180);
-    jframe.add(z2);
+    layeredPane.add(z2, JLayeredPane.DEFAULT_LAYER);
     zombies.add(z2);
 
     setOuvinteLayer(new GerenciadorTeclado(p, gerenciadorPocoes, zombies));

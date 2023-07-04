@@ -37,28 +37,28 @@ public class OuvintePassosPersonagem {
     keys.put(KeyEvent.VK_LEFT, (tamanhoPasso) -> {
       if (gerenciadorCaminhos.isFora(x - tamanhoPasso, y) != null) {
         x -= tamanhoPasso;
-        return "img/sprites/Player/esquerda.png";
+        return "img/sprites/Player/andando/esquerda.png";
       }
       return null;
     });
     keys.put(KeyEvent.VK_RIGHT, (tamanhoPasso) -> {
       if (gerenciadorCaminhos.isFora(x + tamanhoPasso, y) != null) {
         x += tamanhoPasso;
-        return "img/sprites/Player/direita.png";
+        return "img/sprites/Player/andando/direita.png";
       }
       return null;
     });
     keys.put(KeyEvent.VK_UP, (tamanhoPasso) -> {
       if (gerenciadorCaminhos.isFora(x, y - tamanhoPasso) != null) {
         y -= tamanhoPasso;
-        return "img/sprites/Player/traseira.png";
+        return "img/sprites/Player/andando/traseira.png";
       }
       return null;
     });
     keys.put(KeyEvent.VK_DOWN, (tamanhoPasso) -> {
       if (gerenciadorCaminhos.isFora(x, y + tamanhoPasso) != null) {
         y += tamanhoPasso;
-        return "img/sprites/Player/frente.png";
+        return "img/sprites/Player/andando/frente.png";
       }
       return null;
     });

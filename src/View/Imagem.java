@@ -17,7 +17,7 @@ public class Imagem extends JPanel {
   protected void initialize() {
     try {
       this.image = this.getImage("./img/background/Leowood.png");
-    } catch (IOException e) {""
+    } catch (IOException e) {
       throw new RuntimeException(e);
     }
 
